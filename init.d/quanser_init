@@ -1,0 +1,265 @@
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides:          quanserinit
+# Required-Start:    
+# Should-Start:      
+# Required-Stop:     
+# Default-Start:     S
+# Default-Stop:
+# Short-Description: Configures GPIO for QuanserShield.
+# Description:       Configures GPIO for QuanserShield.
+### END INIT INFO
+
+case "$1" in
+    start|restart|force-reload)
+    #GPIO SENSORS
+	if [ ! -d /sys/class/gpio/gpio13 ] ; then
+	    echo -n "13" > /sys/class/gpio/export
+	fi
+	echo -n "in" > /sys/class/gpio/gpio13/direction
+	chgrp gpio /sys/class/gpio/gpio13/value
+	chmod g+r /sys/class/gpio/gpio13/value
+	
+	if [ ! -d /sys/class/gpio/gpio34 ] ; then
+	    echo -n "34" > /sys/class/gpio/export
+	fi
+	echo -n "out" > /sys/class/gpio/gpio34/direction
+	echo -n "1" > /sys/class/gpio/gpio34/value
+
+	if [ ! -d /sys/class/gpio/gpio35 ] ; then
+	    echo -n "35" > /sys/class/gpio/export
+	fi
+	echo -n "out" > /sys/class/gpio/gpio35/direction
+	echo -n "0" > /sys/class/gpio/gpio35/value
+	
+	if [ ! -d /sys/class/gpio/gpio77 ] ; then
+	    echo -n "77" > /sys/class/gpio/export
+	fi
+#	echo -n "out" > /sys/class/gpio/gpio77/direction
+	echo -n "0" > /sys/class/gpio/gpio77/value
+    
+    #PWM MOTOR
+        # IO3 = pwm1
+	if [ ! -d /sys/class/pwm/pwmchip0/pwm1 ] ; then
+	    echo -n "1" > /sys/class/pwm/pwmchip0/export
+	fi
+	chgrp quanser /sys/class/pwm/pwmchip0/device/pwm_period
+	chmod g+w /sys/class/pwm/pwmchip0/device/pwm_period
+	chgrp quanser /sys/class/pwm/pwmchip0/pwm1/duty_cycle
+	chmod g+w /sys/class/pwm/pwmchip0/pwm1/duty_cycle
+	chgrp quanser /sys/class/pwm/pwmchip0/pwm1/enable
+	chmod g+w /sys/class/pwm/pwmchip0/pwm1/enable
+        
+        # gpio16 = 0 = out
+	if [ ! -d /sys/class/gpio/gpio16 ] ; then
+	    echo -n "16" > /sys/class/gpio/export
+	fi
+	echo -n "out" > /sys/class/gpio/gpio16/direction
+	echo -n "0" > /sys/class/gpio/gpio16/value
+
+        # gpio17 = in = no pull-up nor pull-down
+	if [ ! -d /sys/class/gpio/gpio17 ] ; then
+	    echo -n "17" > /sys/class/gpio/export
+	fi
+	echo -n "in" > /sys/class/gpio/gpio17/direction
+        
+        # gpio76 = 0
+	if [ ! -d /sys/class/gpio/gpio76 ] ; then
+	    echo -n "76" > /sys/class/gpio/export
+	fi
+	echo -n "0" > /sys/class/gpio/gpio76/value
+        
+        # gpio64 = 1 */
+	if [ ! -d /sys/class/gpio/gpio64 ] ; then
+	    echo -n "64" > /sys/class/gpio/export
+	fi
+	echo -n "1" > /sys/class/gpio/gpio64/value
+
+    #SPI
+    # Configures IO10 for SPI #SS
+	#	gpio26=0 (output)
+	#	gpio27=1 (pull-up)
+	#	gpio74=0 (IO10 is GPIO)
+	if [ ! -d /sys/class/gpio/gpio26 ] ; then
+	    echo -n "26" > /sys/class/gpio/export
+	fi
+	echo -n "out" > /sys/class/gpio/gpio26/direction
+	echo -n "0" > /sys/class/gpio/gpio26/value
+	
+	if [ ! -d /sys/class/gpio/gpio27 ] ; then
+	    echo -n "27" > /sys/class/gpio/export
+	fi
+	echo -n "out" > /sys/class/gpio/gpio27/direction
+	echo -n "1" > /sys/class/gpio/gpio27/value
+	
+	if [ ! -d /sys/class/gpio/gpio74 ] ; then
+	    echo -n "74" > /sys/class/gpio/export
+	fi
+	echo -n "0" > /sys/class/gpio/gpio74/value
+	
+	# Configures IO11 for SPI MOSI
+	#	gpio24=0 (output)
+	#	gpio25=input (floating)
+	#	gpio44=1 (IO11 is SPI)
+	#	gpio72=0 (IO11 is SPI)
+	if [ ! -d /sys/class/gpio/gpio24 ] ; then
+	    echo -n "24" > /sys/class/gpio/export
+	fi
+	echo -n "out" > /sys/class/gpio/gpio24/direction
+	echo -n "0" > /sys/class/gpio/gpio24/value
+	
+	if [ ! -d /sys/class/gpio/gpio25 ] ; then
+	    echo -n "25" > /sys/class/gpio/export
+	fi
+	echo -n "in" > /sys/class/gpio/gpio25/direction
+	
+	if [ ! -d /sys/class/gpio/gpio44 ] ; then
+	    echo -n "44" > /sys/class/gpio/export
+	fi
+	echo -n "out" > /sys/class/gpio/gpio44/direction
+	echo -n "1" > /sys/class/gpio/gpio44/value
+	
+	if [ ! -d /sys/class/gpio/gpio72 ] ; then
+	    echo -n "72" > /sys/class/gpio/export
+	fi
+	echo -n "0" > /sys/class/gpio/gpio72/value
+
+	# Configures IO12 for SPI MISO
+	#	gpio42=1 (input)
+	#	gpio43=input (floating)
+	if [ ! -d /sys/class/gpio/gpio42 ] ; then
+	    echo -n "42" > /sys/class/gpio/export
+	fi
+	echo -n "out" > /sys/class/gpio/gpio42/direction
+	echo -n "1" > /sys/class/gpio/gpio42/value
+	
+	if [ ! -d /sys/class/gpio/gpio43 ] ; then
+	    echo -n "43" > /sys/class/gpio/export
+	fi
+	echo -n "in" > /sys/class/gpio/gpio43/direction
+
+	# Configure IO13 for SPI SCLK
+	#	gpio30=0 (output)
+	#	gpio31=0 (pull-down, SCLK mode 0)
+	#	gpio46=1 (IO13 is SPI)
+	if [ ! -d /sys/class/gpio/gpio30 ] ; then
+	    echo -n "30" > /sys/class/gpio/export
+	fi
+	echo -n "out" > /sys/class/gpio/gpio30/direction
+	echo -n "0" > /sys/class/gpio/gpio30/value
+	
+	if [ ! -d /sys/class/gpio/gpio31 ] ; then
+	    echo -n "31" > /sys/class/gpio/export
+	fi
+	echo -n "out" > /sys/class/gpio/gpio31/direction
+	echo -n "0" > /sys/class/gpio/gpio31/value
+	
+	if [ ! -d /sys/class/gpio/gpio46 ] ; then
+	    echo -n "46" > /sys/class/gpio/export
+	fi
+	echo -n "out" > /sys/class/gpio/gpio46/direction
+	echo -n "1" > /sys/class/gpio/gpio46/value
+
+        chgrp quanser /dev/spidev1.0
+        chmod g+rw /dev/spidev1.0
+
+    #INTERRUPTION
+    # IO4 = gpio6
+	if [ ! -d /sys/class/gpio/gpio6 ] ; then
+	    echo -n "6" > /sys/class/gpio/export
+	fi
+	echo -n "in" > /sys/class/gpio/gpio6/direction
+	chgrp gpio /sys/class/gpio/gpio6/value
+	chmod g+r /sys/class/gpio/gpio6/value
+	chgrp gpio /sys/class/gpio/gpio6/edge
+	chmod g+rw /sys/class/gpio/gpio6/edge
+
+	# gpio36 = 1 => IO4=in	
+	if [ ! -d /sys/class/gpio/gpio36 ] ; then
+	    echo -n "36" > /sys/class/gpio/export
+	fi
+	echo -n "out" > /sys/class/gpio/gpio36/direction
+	echo -n "1" > /sys/class/gpio/gpio36/value
+
+	# gpio37 = 0 => pull-down
+	if [ ! -d /sys/class/gpio/gpio37 ] ; then
+	    echo -n "37" > /sys/class/gpio/export
+	fi
+	echo -n "out" > /sys/class/gpio/gpio37/direction
+	echo -n "0" > /sys/class/gpio/gpio37/value
+
+	;;
+    stop)
+    #GPIO SENSORS
+    	echo -n "13" > /sys/class/gpio/unexport
+	echo -n "34" > /sys/class/gpio/unexport
+	echo -n "35" > /sys/class/gpio/unexport
+	echo -n "77" > /sys/class/gpio/unexport
+
+    #PWM MOTOR
+    echo -n "0" > /sys/class/pwm/pwmchip0/pwm1/enable
+    	echo -n "76" > /sys/class/gpio/unexport
+        echo -n "64" > /sys/class/gpio/unexport
+	echo -n "17" > /sys/class/gpio/unexport
+	echo -n "1" > /sys/class/gpio/gpio16/value
+	echo -n "16" > /sys/class/gpio/unexport
+	echo -n "1" > /sys/class/pwm/pwmchip0/unexport
+
+    #SPI
+    echo -n "1" > /sys/class/gpio/gpio26/value
+	echo -n "26" > /sys/class/gpio/unexport
+	
+	echo -n "in" > /sys/class/gpio/gpio27/direction
+	
+	echo -n "74" > /sys/class/gpio/unexport
+	
+	echo -n "1" > /sys/class/gpio/gpio24/value
+	echo -n "24" > /sys/class/gpio/unexport
+	
+	echo -n "25" > /sys/class/gpio/unexport
+
+	echo -n "0" > /sys/class/gpio/gpio44/value
+	echo -n "44" > /sys/class/gpio/unexport
+	
+	echo -n "72" > /sys/class/gpio/unexport
+
+	echo -n "42" > /sys/class/gpio/unexport
+
+	echo -n "43" > /sys/class/gpio/unexport
+
+	echo -n "0" > /sys/class/gpio/gpio46/value
+	echo -n "46" > /sys/class/gpio/unexport
+	
+	echo -n "in" > /sys/class/gpio/gpio31/direction
+	echo -n "31" > /sys/class/gpio/unexport
+	
+	echo -n "1" > /sys/class/gpio/gpio30/value
+	echo -n "30" > /sys/class/gpio/unexport
+
+    #INTERRUPTIONS
+    echo -n "in" > /sys/class/gpio/gpio37/direction
+    	echo -n "37" > /sys/class/gpio/unexport
+	echo -n "36" > /sys/class/gpio/unexport
+	echo -n "6" > /sys/class/gpio/unexport
+
+	;;
+    status)
+        #GPIO SENSORS
+    	ls -d /sys/class/gpio/gpio*
+
+        #PWM MOTOR
+        echo -n Period:
+    	cat /sys/class/pwm/pwmchip0/device/pwm_period
+    	echo -n Duty Cicle:
+    	cat /sys/class/pwm/pwmchip0/pwm1/duty_cycle
+    	echo -n Enable:
+    	cat /sys/class/pwm/pwmchip0/pwm1/enable
+	;;
+    *)
+	echo -n "Usage: $0 " 
+	echo "{start|stop|restart|force-reload|status}"
+	exit 1
+	;;
+esac
+
+exit 0
