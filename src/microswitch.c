@@ -25,7 +25,8 @@ int is_end_of_trajectory(int index) {
             exit(EXIT_FAILURE);
     }
 
-    int elb_fd, elb_read;
+    int elb_fd;
+    char elb_read;
 
     elb_fd = open(elb_filename, O_RDONLY);
 
@@ -34,6 +35,6 @@ int is_end_of_trajectory(int index) {
     usleep(100);
     close(elb_fd);
 
-    return elb_read;
+    return elb_read == '1'; //TODO check if '1' really means end
 }
 
