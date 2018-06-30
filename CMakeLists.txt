@@ -7,5 +7,5 @@ add_executable(QuanserControllerShield
 
         main.cpp
         src/microswitch.c
-        src/microswitch.h
+        include/microswitch.h
 )

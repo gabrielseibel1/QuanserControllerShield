@@ -2,7 +2,7 @@
 // Created by gabriel on 6/29/18.
 //
 
-#include "microswitch.h"
+#include "../include/microswitch.h"
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdio.h>
