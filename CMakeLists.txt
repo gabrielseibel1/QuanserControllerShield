@@ -3,4 +3,9 @@ project(QuanserControllerShield)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(QuanserControllerShield main.cpp src/microswitch.c src/microswitch.h)
+add_executable(QuanserControllerShield
+
+        main.cpp
+        src/microswitch.c
+        src/microswitch.h
+)
