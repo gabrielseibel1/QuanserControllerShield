@@ -1,5 +1,5 @@
 //
-// Created by gabriel on 6/29/18.
+// Definitions for reading micro switches and check end of arm trajectory
 //
 
 #include "../include/microswitch.h"

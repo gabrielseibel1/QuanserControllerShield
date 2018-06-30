@@ -1,5 +1,5 @@
 //
-// Created by gabriel on 6/29/18.
+// Headers for reading micro switches and check end of arm trajectory
 //
 
 #ifndef QUANSERCONTROLLERSHIELD_MICROSWITCH_H
