@@ -9,12 +9,20 @@
 #define ELB2 2
 
 class MicroSwitches {
+
 private:
     int elbow1_fd;
     int elbow2_fd;
+
 public:
+    /**
+     * Open files
+     */
     MicroSwitches();
 
+    /**
+     * Close files
+     */
     virtual ~MicroSwitches();
 
     /**
