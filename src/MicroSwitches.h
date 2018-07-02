@@ -1,5 +1,5 @@
 //
-// Created by gabriel on 7/2/18.
+// Headers for micro switches reading
 //
 
 #ifndef QUANSERCONTROLLERSHIELD_MICROSWITCHES_H

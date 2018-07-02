@@ -1,5 +1,5 @@
 //
-// Created by gabriel on 7/1/18.
+// Definitions for decoder
 //
 
 #include <unistd.h>

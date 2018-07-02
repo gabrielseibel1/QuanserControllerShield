@@ -1,5 +1,5 @@
 //
-// Created by gabriel on 7/1/18.
+// Headers for decoder
 //
 
 #ifndef QUANSERCONTROLLERSHIELD_DECODER_H

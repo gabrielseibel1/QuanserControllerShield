@@ -1,5 +1,5 @@
 //
-// Created by gabriel on 7/2/18.
+// Definitions for micro switches reading
 //
 
 #include <fcntl.h>
