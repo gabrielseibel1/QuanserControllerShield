@@ -6,7 +6,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <unistd.h>
-#include "MicroSwitches.h"
+#include "../include/MicroSwitches.h"
 
 MicroSwitches::MicroSwitches() {
     const char *elbow1_filename = "/sys/class/gpio/gpio62/value";

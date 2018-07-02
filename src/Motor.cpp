@@ -2,7 +2,7 @@
 // Definitions for dc motor actuation
 //
 
-#include "Motor.h"
+#include "../include/Motor.h"
 #include <cstdio>
 #include <cstdlib>
 #include <unistd.h>

@@ -9,7 +9,7 @@
 #include <cstdint>
 #include <sys/ioctl.h>
 #include <linux/spi/spidev.h>
-#include "Decoder.h"
+#include "../include/Decoder.h"
 #include "../include/galileo2io.h"
 
 Decoder::Decoder() {
