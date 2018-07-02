@@ -68,17 +68,13 @@ Decoder::Decoder() {
     }
 
     //clear counting register
-    reset_count();
+    if (reset_count() < 0) exit(EXIT_FAILURE);
 }
 
 
 Decoder::~Decoder() {
-    if (close(spi_fd) < 0) {
-        fprintf(stderr, "Failed to close SPI\n");
-    }
-    if (close(_ss_fd) < 0) {
-        fprintf(stderr, "Failed to close #SS\n");
-    }
+    if (close(spi_fd) < 0) fprintf(stderr, "Failed to close SPI\n");
+    if (close(_ss_fd) < 0) fprintf(stderr, "Failed to close #SS\n");
 }
 
 int Decoder::get_count() {
@@ -87,8 +83,8 @@ int Decoder::get_count() {
     unsigned char byte = 0;
     char read_counter_op = READ_CNTR;
 
-    _ss_high();
-    _ss_low();
+    if (_ss_high() < 0) exit(EXIT_FAILURE);
+    if (_ss_low() < 0) exit(EXIT_FAILURE);
 
     //write spi op code to read counter to spi bus
     if (write(spi_fd, &read_counter_op, sizeof(read_counter_op)) < 0) {
@@ -109,7 +105,7 @@ int Decoder::get_count() {
         count = count | byte;
     }
 
-    _ss_high();
+    if (_ss_high() < 0) exit(EXIT_FAILURE);
 
     return count;
 }
@@ -123,7 +119,7 @@ int Decoder::reset_count() {
     //write spi op code to spi bus
     if (write(spi_fd, &op_code, sizeof(op_code)) < 0) {
         fprintf(stderr, "Failed reset counter\n");
-        exit(EXIT_FAILURE);
+        return -1;
     }
 
     if (_ss_high() < 0) return -1;
