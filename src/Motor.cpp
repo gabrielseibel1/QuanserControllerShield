@@ -7,21 +7,58 @@
 #include <cstdlib>
 #include <unistd.h>
 #include <cstring>
+#include <fcntl.h>
 #include "../include/galileo2io.h"
 
 Motor::Motor() {
-    //TODO open fd for L6203 ENABLE pin GPIO
-    //TODO open fd for duty cycle
-    disable();
-    set_pwm_period();
-    enable_pwm();
-    set_voltage(0);
+    //open file for L6203 ENABLE pin GPIO
+    if ((enable_motor_fd = open(MOTOR_ENABLE_FILENAME, O_WRONLY)) == -1) {
+        fprintf(stderr, "Failed to open motor enable GPIO file\n");
+        exit(EXIT_FAILURE);
+    }
+
+    //open file for PWM duty cycle
+    if ((duty_cycle_fd = open(PWM_DUTY_CYCLE_FILENAME, O_WRONLY)) == -1) {
+        fprintf(stderr, "Failed to PWM duty cycle file\n");
+        exit(EXIT_FAILURE);
+    }
+
+    //start with motor disabled
+    if (disable() < 0) exit(EXIT_FAILURE);
+
+    //set pwm period
+    if (set_pwm_period() < 0) exit(EXIT_FAILURE);
+
+    //enable pwm
+    if (enable_pwm() < 0) exit(EXIT_FAILURE);
+
+    //start with 0 voltage (stopped motor)
+    if (set_voltage(0) < 0) exit(EXIT_FAILURE);
 }
 
 Motor::~Motor() {
+    //set PWM to off
     disable_pwm();
-    //TODO disable and close fd for L6203 ENABLE pin GPIO
-    //TODO close duty cycle fd
+
+    //set motor state to off
+    disable();
+
+    //close file descriptors
+    if (close(enable_motor_fd) < 0) fprintf(stderr, "Failed to close motor enable GPIO file\n");
+    if (close(duty_cycle_fd) < 0) fprintf(stderr, "Failed to duty cycle configuration file\n");
+}
+
+int Motor::set_voltage_percentage(float percentage) {
+    //check range
+    if (percentage > 100 || percentage < 0) {
+        fprintf(stderr, "Invalid voltage percentage - use values from 0 to 100\n");
+        return -1;
+    }
+
+    //get voltage from percentage
+    float voltage = (percentage/100) * (MAX_MOTOR_VOLTAGE - MIN_MOTOR_VOLTAGE) + MIN_MOTOR_VOLTAGE;
+
+    return set_voltage(voltage);
 }
 
 int Motor::set_voltage(float voltage) {
@@ -44,22 +81,42 @@ int Motor::set_voltage(float voltage) {
     }
 }
 
-void Motor::disable() {
-    //TODO set GPIO for L6203 ENABLE pin
+int Motor::disable() {
+    if (write(enable_motor_fd, "0", strlen("0")) < 0) {
+        fprintf(stderr, "Failed to disable motor\n");
+        return -1;
+    }
+    return 0;
 }
 
-void Motor::enable() {
-    //TODO set GPIO for L6203 ENABLE pin
+int Motor::enable() {
+    if (write(enable_motor_fd, "1", strlen("1")) < 0) {
+        fprintf(stderr, "Failed to enable motor\n");
+        return -1;
+    }
+    return 0;
 }
 
-void Motor::disable_pwm() {
-    pputs("/sys/class/pwm/pwmchip0/pwm1/enable", "0");
+int Motor::disable_pwm() {
+    if (pputs("/sys/class/pwm/pwmchip0/pwm1/enable", "0") < 0) {
+        fprintf(stderr, "Failed to set pwm period\n");
+        return -1;
+    }
+    return 0;
 }
 
-void Motor::enable_pwm() {
-    pputs("/sys/class/pwm/pwmchip0/pwm1/enable", "1");
+int Motor::enable_pwm() {
+    if (pputs("/sys/class/pwm/pwmchip0/pwm1/enable", "1") < 0) {
+        fprintf(stderr, "Failed to set pwm period\n");
+        return -1;
+    }
+    return 0;
 }
 
-void Motor::set_pwm_period() {
-    pputs("/sys/class/pwm/pwmchip0/device/pwm_period", PWM_PERIOD_NS);
+int Motor::set_pwm_period() {
+    if (pputs("/sys/class/pwm/pwmchip0/device/pwm_period", PWM_PERIOD_NS) < 0) {
+        fprintf(stderr, "Failed to set pwm period\n");
+        return -1;
+    }
+    return 0;
 }

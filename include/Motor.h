@@ -16,6 +16,10 @@
 //b = a*MAX_VOLTAGE
 #define DUTY_CYCLE_INTERCEPT 5000000
 
+#define MOTOR_ENABLE_FILENAME "/sys/class/gpio/gpio38/value"
+
+#define PWM_DUTY_CYCLE_FILENAME "/sys/class/pwm/pwmchip0/pwm1/duty_cycle"
+
 class Motor {
 
 public:
@@ -33,18 +37,22 @@ public:
     /**
      * Turns motor OFF by setting its enable pin to 0
      */
-    void disable();
+    int disable();
 
     /**
      * Turns motor ON by setting its enable pin to 1
      */
-    void enable();
+    int enable();
 
     /**
-     * Sets apparent voltage of the dc motor. Effectively, sets PWM duty cycle accordingly.
-     * @param voltage The desired voltage between MAX_MOTOR_VOLTAGE and MIN_MOTOR_VOLTAGE
+     * Sets motor voltage from a percentage (0-100) of the possible range
+     * 0 -> full throttle to side A
+     * 50 -> no movement
+     * 100 -> full throttle to side B
+     * @param percentage value from 0 to 100 that corresponds to percentage of voltage range
+     * @return 0 if success, -1 if failed
      */
-    int set_voltage(float voltage);
+    int set_voltage_percentage(float percentage);
 
 private:
 
@@ -59,19 +67,25 @@ private:
     int enable_motor_fd;
 
     /**
+     * Sets apparent voltage of the dc motor. Effectively, sets PWM duty cycle accordingly.
+     * @param voltage The desired voltage between MAX_MOTOR_VOLTAGE and MIN_MOTOR_VOLTAGE
+     */
+    int set_voltage(float voltage);
+
+    /**
      * Turns PWM ON
      */
-    void enable_pwm();
+    int enable_pwm();
 
     /**
      * Turns PWM OFF
      */
-    void disable_pwm();
+    int disable_pwm();
 
     /**
      * Configures PWM period to default value PWM_PERIOD_NS_INT
      */
-    void set_pwm_period();
+    int set_pwm_period();
 };
 
 
