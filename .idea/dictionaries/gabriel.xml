@@ -5,6 +5,7 @@
       <w>gpio</w>
       <w>pgets</w>
       <w>pputs</w>
+      <w>quanser</w>
       <w>spidev</w>
     </words>
   </dictionary>

@@ -15,4 +15,4 @@ add_executable(QuanserControllerShield
         include/MicroSwitches.h
         src/Motor.cpp
         include/Motor.h
-)
+        src/QuanserControllerShield.cpp src/QuanserControllerShield.h)

@@ -75,6 +75,7 @@ int Motor::set_voltage(float voltage) {
     duty_cycle_ns = (int) (voltage * DUTY_CYCLE_SLOPE + DUTY_CYCLE_INTERCEPT);
 
     snprintf(str, sizeof str, "%d\n", duty_cycle_ns);
+    lseek(duty_cycle_fd, 0, SEEK_SET);
     if (write(duty_cycle_fd, str, strlen(str)) < strlen(str)) {
         fprintf(stderr, "Failed to set duty cycle\n");
         return -1;
@@ -82,6 +83,7 @@ int Motor::set_voltage(float voltage) {
 }
 
 int Motor::disable() {
+    lseek(enable_motor_fd, 0, SEEK_SET);
     if (write(enable_motor_fd, "0", strlen("0")) < 0) {
         fprintf(stderr, "Failed to disable motor\n");
         return -1;
@@ -90,6 +92,7 @@ int Motor::disable() {
 }
 
 int Motor::enable() {
+    lseek(enable_motor_fd, 0, SEEK_SET);
     if (write(enable_motor_fd, "1", strlen("1")) < 0) {
         fprintf(stderr, "Failed to enable motor\n");
         return -1;
