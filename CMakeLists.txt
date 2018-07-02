@@ -7,10 +7,12 @@ set(CMAKE_CXX_STANDARD 11)
 add_executable(QuanserControllerShield
 
         main.cpp
-        src/motor.c
-        src/motor.h
         lib/galileo2io.c
         include/galileo2io.h
         src/Decoder.cpp
         src/Decoder.h
-        src/MicroSwitches.cpp src/MicroSwitches.h)
+        src/MicroSwitches.cpp
+        src/MicroSwitches.h
+        src/Motor.cpp
+        src/Motor.h
+)
