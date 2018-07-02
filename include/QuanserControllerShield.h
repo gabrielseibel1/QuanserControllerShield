@@ -5,9 +5,9 @@
 #ifndef QUANSERCONTROLLERSHIELD_QUANSERCONTROLLERSHIELD_H
 #define QUANSERCONTROLLERSHIELD_QUANSERCONTROLLERSHIELD_H
 
-#include "../include/Motor.h"
-#include "../include/Decoder.h"
-#include "../include/MicroSwitches.h"
+#include "Motor.h"
+#include "Decoder.h"
+#include "MicroSwitches.h"
 
 class QuanserControllerShield {
 public:

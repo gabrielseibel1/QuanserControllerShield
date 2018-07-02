@@ -2,7 +2,7 @@
 // Declarations for Quanser-Controller Shield (high level abstraction of the board)
 //
 
-#include "QuanserControllerShield.h"
+#include "../include/QuanserControllerShield.h"
 
 QuanserControllerShield::QuanserControllerShield() = default;
 
