@@ -9,8 +9,8 @@
 #include <cstdint>
 #include <sys/ioctl.h>
 #include <linux/spi/spidev.h>
+#include <cmath>
 #include "../include/Decoder.h"
-#include "../include/galileo2io.h"
 
 Decoder::Decoder() {
     uint8_t mode = SPI_MODE_0;
@@ -189,4 +189,14 @@ int Decoder::_ss_high() {
         return -1;
     }
     return 0;
+}
+
+float Decoder::get_position_radians() {
+    int counting;
+
+    //divide by 4 because we are using x4 mode of quadrature counting
+    counting = get_count() / 4;
+
+    //convert to radians
+    return (float) (2 * M_PI * counting / COUNTS_PER_REVOLUTION);
 }

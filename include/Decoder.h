@@ -5,7 +5,6 @@
 #ifndef QUANSERCONTROLLERSHIELD_DECODER_H
 #define QUANSERCONTROLLERSHIELD_DECODER_H
 
-
 class Decoder {
 public:
 
@@ -20,12 +19,18 @@ public:
     virtual ~Decoder();
 
     /**
+     * Reads counting and converts to radians, indicating position of the joint
+     * @return position of the joint in radians
+     */
+    float get_position_radians();
+
+private:
+
+    /**
      * Read counting from SPI
      * @return value of CNTR register
      */
     int get_count();
-
-private:
 
     /**
      * File descriptor for SPI
@@ -141,5 +146,6 @@ private:
 #define LOAD_OTR 0xE4
 
 #define SPI_FREQUENCY 5000000
+#define COUNTS_PER_REVOLUTION 4096
 
 #endif //QUANSERCONTROLLERSHIELD_DECODER_H
