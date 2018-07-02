@@ -13,4 +13,6 @@ add_executable(QuanserControllerShield
         src/motor.h
         lib/galileo2io.c
         include/galileo2io.h
+        src/Decoder.cpp
+        src/Decoder.h
 )

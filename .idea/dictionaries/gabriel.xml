@@ -1,8 +1,10 @@
 <component name="ProjectDictionaryState">
   <dictionary name="gabriel">
     <words>
+      <w>gpio</w>
       <w>pgets</w>
       <w>pputs</w>
+      <w>spidev</w>
     </words>
   </dictionary>
 </component>
