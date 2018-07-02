@@ -1,7 +1,3 @@
-//
-// Declarations for Quanser-Controller Shield (high level abstraction of the board)
-//
-
 #ifndef QUANSERCONTROLLERSHIELD_QUANSERCONTROLLERSHIELD_H
 #define QUANSERCONTROLLERSHIELD_QUANSERCONTROLLERSHIELD_H
 
@@ -9,6 +5,9 @@
 #include "Decoder.h"
 #include "MicroSwitches.h"
 
+/**
+ * High level abstraction of the board
+ */
 class QuanserControllerShield {
 public:
     Motor *motor;

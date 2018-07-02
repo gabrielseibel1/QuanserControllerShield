@@ -1,13 +1,12 @@
-//
-// Headers for micro switches reading
-//
-
 #ifndef QUANSERCONTROLLERSHIELD_MICROSWITCHES_H
 #define QUANSERCONTROLLERSHIELD_MICROSWITCHES_H
 
 #define ELB1 1
 #define ELB2 2
 
+/**
+ * Micro switches that mark the end of trajectory of the arm
+ */
 class MicroSwitches {
 
 private:

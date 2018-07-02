@@ -1,26 +1,31 @@
-//
-// Headers for dc motor actuation
-//
-
 #ifndef QUANSERCONTROLLERSHIELD_MOTOR_H
 #define QUANSERCONTROLLERSHIELD_MOTOR_H
 
 #define MAX_MOTOR_VOLTAGE 27
 #define MIN_MOTOR_VOLTAGE (-27)
 
-//F = 1000Hz -> P = 0.001 s = 1000000 ns
+/**
+ * F = 1000Hz -> P = 0.001 s = 1000000 ns
+ */
 #define PWM_PERIOD_NS "1000000"
 
-//a = PWM_PERIOD / (MAX_VOLTAGE - MIN_VOLTAGE)
+/**
+ * a = PWM_PERIOD / (MAX_VOLTAGE - MIN_VOLTAGE)
+ */
 #define DUTY_CYCLE_SLOPE 18518.5185185
 
-//b = a*MAX_VOLTAGE
+/**
+ * b = a*MAX_VOLTAGE
+ */
 #define DUTY_CYCLE_INTERCEPT 500000
 
 #define MOTOR_ENABLE_FILENAME "/sys/class/gpio/gpio38/value"
 
 #define PWM_DUTY_CYCLE_FILENAME "/sys/class/pwm/pwmchip0/pwm1/duty_cycle"
 
+/**
+ * DC motor actuation based on PWM
+ */
 class Motor {
 
 public:

@@ -1,10 +1,9 @@
-//
-// Headers for decoder
-//
-
 #ifndef QUANSERCONTROLLERSHIELD_DECODER_H
 #define QUANSERCONTROLLERSHIELD_DECODER_H
 
+/**
+ * LS7366R Decoder
+ */
 class Decoder {
 public:
 
