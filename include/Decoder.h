@@ -10,9 +10,7 @@ class Decoder {
 public:
 
     /**
-     * Save SPI
-     * Set slave select
-     * Set CPOL and CPHA
+     * Opens files and configures SPI communication
      */
     Decoder();
 
@@ -23,7 +21,7 @@ public:
 
     /**
      * Read counting from SPI
-     * @return
+     * @return value of CNTR register
      */
     int get_count();
 
