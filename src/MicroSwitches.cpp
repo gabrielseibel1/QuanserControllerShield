@@ -23,14 +23,8 @@ MicroSwitches::MicroSwitches() {
 }
 
 MicroSwitches::~MicroSwitches() {
-    if (close(elbow1_fd) < 0) {
-        fprintf(stderr, "Failed to close elbow 1 micro switch\n");
-        exit(EXIT_FAILURE);
-    }
-    if (close(elbow2_fd) < 0) {
-        fprintf(stderr, "Failed to close elbow 2 micro switch\n");
-        exit(EXIT_FAILURE);
-    }
+    if (close(elbow1_fd) < 0) fprintf(stderr, "Failed to close elbow 1 micro switch\n");
+    if (close(elbow2_fd) < 0) fprintf(stderr, "Failed to close elbow 2 micro switch\n");
 }
 
 int MicroSwitches::is_end_of_trajectory(int index) {
