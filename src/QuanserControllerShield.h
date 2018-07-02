@@ -15,8 +15,14 @@ public:
     Decoder *decoder;
     MicroSwitches *microSwitches;
 
+    /**
+     * Initializes all the components, opening and configuring necessary files
+     */
     QuanserControllerShield();
 
+    /**
+     * Destroys all the components, configuring and closing necessary files
+     */
     virtual ~QuanserControllerShield();
 };
 
