@@ -1,6 +1,6 @@
 #! /bin/sh
 ### BEGIN INIT INFO
-# Provides:          quanserinit
+# Provides:          QuanserControllerShield pins initialization
 # Required-Start:    
 # Should-Start:      
 # Required-Stop:     

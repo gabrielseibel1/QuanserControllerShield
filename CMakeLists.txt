@@ -3,10 +3,8 @@ project(QuanserControllerShield)
 
 set(CMAKE_CXX_STANDARD 11)
 
-
 add_executable(QuanserControllerShield
 
-        main.cpp
         lib/galileo2io.c
         include/galileo2io.h
         lib/Decoder.cpp
@@ -15,4 +13,6 @@ add_executable(QuanserControllerShield
         include/MicroSwitches.h
         lib/Motor.cpp
         include/Motor.h
-        lib/QuanserControllerShield.cpp include/QuanserControllerShield.h)
+        lib/QuanserControllerShield.cpp
+        include/QuanserControllerShield.h
+        test/test.cpp)

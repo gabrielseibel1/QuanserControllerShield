@@ -2,7 +2,7 @@
 #define QUANSERCONTROLLERSHIELD_DECODER_H
 
 /**
- * LS7366R Decoder
+ * LS7366R Decoder for reading the position of the arm joint
  */
 class Decoder {
 public:

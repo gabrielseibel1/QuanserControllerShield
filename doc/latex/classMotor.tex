@@ -1,0 +1,72 @@
+\hypertarget{classMotor}{}\section{Motor Class Reference}
+\label{classMotor}\index{Motor@{Motor}}
+
+
+{\ttfamily \#include $<$Motor.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMotor_af6106b4c506411265c5face762b6c004}{Motor}} ()
+\item 
+virtual \mbox{\hyperlink{classMotor_a2e57c7b2681efea1d3b7f253ee88ecd4}{$\sim$\+Motor}} ()
+\item 
+int \mbox{\hyperlink{classMotor_ac019bca262791cea21e1c84c9156d199}{disable}} ()
+\item 
+int \mbox{\hyperlink{classMotor_aff58309122a4ba7ea4d037e288c9192f}{enable}} ()
+\item 
+int \mbox{\hyperlink{classMotor_a7fda59cead716e5cd5ce252741d3d47b}{set\+\_\+voltage\+\_\+percentage}} (float percentage)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+DC motor actuation based on P\+WM 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMotor_af6106b4c506411265c5face762b6c004}\label{classMotor_af6106b4c506411265c5face762b6c004}} 
+\index{Motor@{Motor}!Motor@{Motor}}
+\index{Motor@{Motor}!Motor@{Motor}}
+\subsubsection{\texorpdfstring{Motor()}{Motor()}}
+{\footnotesize\ttfamily Motor\+::\+Motor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Makes first configuration for the motor \mbox{\Hypertarget{classMotor_a2e57c7b2681efea1d3b7f253ee88ecd4}\label{classMotor_a2e57c7b2681efea1d3b7f253ee88ecd4}} 
+\index{Motor@{Motor}!````~Motor@{$\sim$\+Motor}}
+\index{````~Motor@{$\sim$\+Motor}!Motor@{Motor}}
+\subsubsection{\texorpdfstring{$\sim$\+Motor()}{~Motor()}}
+{\footnotesize\ttfamily Motor\+::$\sim$\+Motor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Close files 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMotor_ac019bca262791cea21e1c84c9156d199}\label{classMotor_ac019bca262791cea21e1c84c9156d199}} 
+\index{Motor@{Motor}!disable@{disable}}
+\index{disable@{disable}!Motor@{Motor}}
+\subsubsection{\texorpdfstring{disable()}{disable()}}
+{\footnotesize\ttfamily int Motor\+::disable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Turns motor O\+FF by setting its enable pin to 0 \mbox{\Hypertarget{classMotor_aff58309122a4ba7ea4d037e288c9192f}\label{classMotor_aff58309122a4ba7ea4d037e288c9192f}} 
+\index{Motor@{Motor}!enable@{enable}}
+\index{enable@{enable}!Motor@{Motor}}
+\subsubsection{\texorpdfstring{enable()}{enable()}}
+{\footnotesize\ttfamily int Motor\+::enable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Turns motor ON by setting its enable pin to 1 \mbox{\Hypertarget{classMotor_a7fda59cead716e5cd5ce252741d3d47b}\label{classMotor_a7fda59cead716e5cd5ce252741d3d47b}} 
+\index{Motor@{Motor}!set\+\_\+voltage\+\_\+percentage@{set\+\_\+voltage\+\_\+percentage}}
+\index{set\+\_\+voltage\+\_\+percentage@{set\+\_\+voltage\+\_\+percentage}!Motor@{Motor}}
+\subsubsection{\texorpdfstring{set\+\_\+voltage\+\_\+percentage()}{set\_voltage\_percentage()}}
+{\footnotesize\ttfamily int Motor\+::set\+\_\+voltage\+\_\+percentage (\begin{DoxyParamCaption}\item[{float}]{percentage }\end{DoxyParamCaption})}
+
+Sets motor voltage from a percentage (0-\/100) of the possible range 0 -\/$>$ full throttle to side A 50 -\/$>$ no movement 100 -\/$>$ full throttle to side B 
+\begin{DoxyParams}{Parameters}
+{\em percentage} & value from 0 to 100 that corresponds to percentage of voltage range \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if success, -\/1 if failed 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/gabriel/\+C\+Lion\+Projects/\+Quanser\+Controller\+Shield/include/Motor.\+h\item 
+/home/gabriel/\+C\+Lion\+Projects/\+Quanser\+Controller\+Shield/lib/Motor.\+cpp\end{DoxyCompactItemize}

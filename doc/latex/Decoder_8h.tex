@@ -1,0 +1,145 @@
+\hypertarget{Decoder_8h}{}\section{include/\+Decoder.h File Reference}
+\label{Decoder_8h}\index{include/\+Decoder.\+h@{include/\+Decoder.\+h}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classDecoder}{Decoder}}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{Decoder_8h_ac8551bdc3d8c10962b07b67d9558c6c8}\label{Decoder_8h_ac8551bdc3d8c10962b07b67d9558c6c8}} 
+\#define {\bfseries N\+Q\+U\+AD}~0x00
+\item 
+\mbox{\Hypertarget{Decoder_8h_a56cb489ea18306c755ca95aaab835749}\label{Decoder_8h_a56cb489ea18306c755ca95aaab835749}} 
+\#define {\bfseries Q\+U\+A\+D\+R\+X1}~0x01
+\item 
+\mbox{\Hypertarget{Decoder_8h_adde947448a8b0e8ed4232e6645adff17}\label{Decoder_8h_adde947448a8b0e8ed4232e6645adff17}} 
+\#define {\bfseries Q\+U\+A\+D\+R\+X2}~0x02
+\item 
+\mbox{\Hypertarget{Decoder_8h_af409c8fda3b8fee55811fb024cb030a6}\label{Decoder_8h_af409c8fda3b8fee55811fb024cb030a6}} 
+\#define {\bfseries Q\+U\+A\+D\+R\+X4}~0x03
+\item 
+\mbox{\Hypertarget{Decoder_8h_a0a9f6fa936390e8bdc58e536b95d9c29}\label{Decoder_8h_a0a9f6fa936390e8bdc58e536b95d9c29}} 
+\#define {\bfseries F\+R\+E\+E\+\_\+\+R\+UN}~0x00
+\item 
+\mbox{\Hypertarget{Decoder_8h_a4087c0b793e4b5dcfdb9692f9dcf7dcc}\label{Decoder_8h_a4087c0b793e4b5dcfdb9692f9dcf7dcc}} 
+\#define {\bfseries S\+I\+N\+G\+E\+\_\+\+C\+Y\+C\+LE}~0x04
+\item 
+\mbox{\Hypertarget{Decoder_8h_a31b7e33ba45b07c841ef2988515626c2}\label{Decoder_8h_a31b7e33ba45b07c841ef2988515626c2}} 
+\#define {\bfseries R\+A\+N\+G\+E\+\_\+\+L\+I\+M\+IT}~0x08
+\item 
+\mbox{\Hypertarget{Decoder_8h_a286add63c87c46d697b3b0c326194d4d}\label{Decoder_8h_a286add63c87c46d697b3b0c326194d4d}} 
+\#define {\bfseries M\+O\+D\+U\+L\+O\+\_\+N}~0x0C
+\item 
+\mbox{\Hypertarget{Decoder_8h_a9c85cd3313959f783e982dc29f5894b4}\label{Decoder_8h_a9c85cd3313959f783e982dc29f5894b4}} 
+\#define {\bfseries D\+I\+S\+A\+B\+L\+E\+\_\+\+I\+N\+DX}~0x00
+\item 
+\mbox{\Hypertarget{Decoder_8h_afccb4adb9d1d983a0168c7b2ad479be0}\label{Decoder_8h_afccb4adb9d1d983a0168c7b2ad479be0}} 
+\#define {\bfseries I\+N\+D\+X\+\_\+\+L\+O\+A\+DC}~0x10
+\item 
+\mbox{\Hypertarget{Decoder_8h_ae4061c5a38091947401e476906f0414d}\label{Decoder_8h_ae4061c5a38091947401e476906f0414d}} 
+\#define {\bfseries I\+N\+D\+X\+\_\+\+R\+E\+S\+E\+TC}~0x20
+\item 
+\mbox{\Hypertarget{Decoder_8h_a58ef749dca421662ecb45a087081e14d}\label{Decoder_8h_a58ef749dca421662ecb45a087081e14d}} 
+\#define {\bfseries I\+N\+D\+X\+\_\+\+L\+O\+A\+DO}~0x30
+\item 
+\mbox{\Hypertarget{Decoder_8h_a862a841a15a8df2ec3fe318054577a65}\label{Decoder_8h_a862a841a15a8df2ec3fe318054577a65}} 
+\#define {\bfseries A\+S\+Y\+N\+C\+H\+\_\+\+I\+N\+DX}~0x00
+\item 
+\mbox{\Hypertarget{Decoder_8h_a524767a3389b4e228f054dc07cf03eb3}\label{Decoder_8h_a524767a3389b4e228f054dc07cf03eb3}} 
+\#define {\bfseries S\+Y\+N\+C\+H\+\_\+\+I\+N\+DX}~0x80
+\item 
+\mbox{\Hypertarget{Decoder_8h_ad868c8b55c4dfcc54eae872431d2113e}\label{Decoder_8h_ad868c8b55c4dfcc54eae872431d2113e}} 
+\#define {\bfseries F\+I\+L\+T\+E\+R\+\_\+1}~0x00
+\item 
+\mbox{\Hypertarget{Decoder_8h_a8a9ff9129a0202b755fa962a1d7a1634}\label{Decoder_8h_a8a9ff9129a0202b755fa962a1d7a1634}} 
+\#define {\bfseries F\+I\+L\+T\+E\+R\+\_\+2}~0x80
+\item 
+\mbox{\Hypertarget{Decoder_8h_a9cfcd032e38e55938e02821e97fe3660}\label{Decoder_8h_a9cfcd032e38e55938e02821e97fe3660}} 
+\#define {\bfseries N\+O\+\_\+\+F\+L\+A\+GS}~0x00
+\item 
+\mbox{\Hypertarget{Decoder_8h_a2ea1a424fdab0c4b7ddf54ff67dad08d}\label{Decoder_8h_a2ea1a424fdab0c4b7ddf54ff67dad08d}} 
+\#define {\bfseries I\+D\+X\+\_\+\+F\+L\+AG}~0x10
+\item 
+\mbox{\Hypertarget{Decoder_8h_a074368acf74b589c1dbf45c7bad357e5}\label{Decoder_8h_a074368acf74b589c1dbf45c7bad357e5}} 
+\#define {\bfseries C\+M\+P\+\_\+\+F\+L\+AG}~0x20
+\item 
+\mbox{\Hypertarget{Decoder_8h_ad9ee687e466278fb1d21a107227f5da8}\label{Decoder_8h_ad9ee687e466278fb1d21a107227f5da8}} 
+\#define {\bfseries B\+W\+\_\+\+F\+L\+AG}~0x40
+\item 
+\mbox{\Hypertarget{Decoder_8h_a9e019b9d20cf7b4072da1a0892c7118a}\label{Decoder_8h_a9e019b9d20cf7b4072da1a0892c7118a}} 
+\#define {\bfseries C\+Y\+\_\+\+F\+L\+AG}~0x80
+\item 
+\mbox{\Hypertarget{Decoder_8h_a331a010a3845e67f2cb06ba4c51e46f2}\label{Decoder_8h_a331a010a3845e67f2cb06ba4c51e46f2}} 
+\#define {\bfseries B\+Y\+T\+E\+\_\+4}~0x00
+\item 
+\mbox{\Hypertarget{Decoder_8h_a8c0001a2776c2f7ad759f43e77e460ca}\label{Decoder_8h_a8c0001a2776c2f7ad759f43e77e460ca}} 
+\#define {\bfseries B\+Y\+T\+E\+\_\+3}~0x01
+\item 
+\mbox{\Hypertarget{Decoder_8h_a8478fde7b3478e18f57a71255db28c8a}\label{Decoder_8h_a8478fde7b3478e18f57a71255db28c8a}} 
+\#define {\bfseries B\+Y\+T\+E\+\_\+2}~0x02
+\item 
+\mbox{\Hypertarget{Decoder_8h_ab9a0d70cb746f776adf784200005e0a1}\label{Decoder_8h_ab9a0d70cb746f776adf784200005e0a1}} 
+\#define {\bfseries B\+Y\+T\+E\+\_\+1}~0x03
+\item 
+\mbox{\Hypertarget{Decoder_8h_a6d53c8a07c6a28b77606d9adac788e1e}\label{Decoder_8h_a6d53c8a07c6a28b77606d9adac788e1e}} 
+\#define {\bfseries E\+N\+\_\+\+C\+N\+TR}~0x00
+\item 
+\mbox{\Hypertarget{Decoder_8h_a9491da571d484ba3fc9cd23069f06c17}\label{Decoder_8h_a9491da571d484ba3fc9cd23069f06c17}} 
+\#define {\bfseries D\+I\+S\+\_\+\+C\+N\+TR}~0x04
+\item 
+\mbox{\Hypertarget{Decoder_8h_aa1401b1c9a0fa1cf60ae9736e3286479}\label{Decoder_8h_aa1401b1c9a0fa1cf60ae9736e3286479}} 
+\#define {\bfseries C\+L\+R\+\_\+\+M\+D\+R0}~0x08
+\item 
+\mbox{\Hypertarget{Decoder_8h_a4a707767ed57e7ad728447294a44edd9}\label{Decoder_8h_a4a707767ed57e7ad728447294a44edd9}} 
+\#define {\bfseries C\+L\+R\+\_\+\+M\+D\+R1}~0x10
+\item 
+\mbox{\Hypertarget{Decoder_8h_a16c48d94cd722a9b80c88ea5403fe32a}\label{Decoder_8h_a16c48d94cd722a9b80c88ea5403fe32a}} 
+\#define {\bfseries C\+L\+R\+\_\+\+C\+N\+TR}~0x20
+\item 
+\mbox{\Hypertarget{Decoder_8h_a203152a9c75e948ba94c41b3aeb9a24e}\label{Decoder_8h_a203152a9c75e948ba94c41b3aeb9a24e}} 
+\#define {\bfseries C\+L\+R\+\_\+\+S\+TR}~0x30
+\item 
+\mbox{\Hypertarget{Decoder_8h_ab3861df87cd42aa72231b09f35be1511}\label{Decoder_8h_ab3861df87cd42aa72231b09f35be1511}} 
+\#define {\bfseries R\+E\+A\+D\+\_\+\+M\+D\+R0}~0x48
+\item 
+\mbox{\Hypertarget{Decoder_8h_ae85cdc156bb6c019d867e44ec1f985f0}\label{Decoder_8h_ae85cdc156bb6c019d867e44ec1f985f0}} 
+\#define {\bfseries R\+E\+A\+D\+\_\+\+M\+D\+R1}~0x50
+\item 
+\mbox{\Hypertarget{Decoder_8h_a16f3c4a685121a0c5ae673d5dc51ce79}\label{Decoder_8h_a16f3c4a685121a0c5ae673d5dc51ce79}} 
+\#define {\bfseries R\+E\+A\+D\+\_\+\+C\+N\+TR}~0x60
+\item 
+\mbox{\Hypertarget{Decoder_8h_a9bd56d0014c148e80f521d6a643c21d9}\label{Decoder_8h_a9bd56d0014c148e80f521d6a643c21d9}} 
+\#define {\bfseries R\+E\+A\+D\+\_\+\+O\+TR}~0x68
+\item 
+\mbox{\Hypertarget{Decoder_8h_aa398eb881ac21354b754a2a6335f436c}\label{Decoder_8h_aa398eb881ac21354b754a2a6335f436c}} 
+\#define {\bfseries R\+E\+A\+D\+\_\+\+S\+TR}~0x70
+\item 
+\mbox{\Hypertarget{Decoder_8h_a0698ef7218887ec46cf9b0c54691048b}\label{Decoder_8h_a0698ef7218887ec46cf9b0c54691048b}} 
+\#define {\bfseries W\+R\+I\+T\+E\+\_\+\+M\+D\+R1}~0x90
+\item 
+\mbox{\Hypertarget{Decoder_8h_a73c9ba0cf0643be60bbb546c7a7afe6e}\label{Decoder_8h_a73c9ba0cf0643be60bbb546c7a7afe6e}} 
+\#define {\bfseries W\+R\+I\+T\+E\+\_\+\+M\+D\+R0}~0x88
+\item 
+\mbox{\Hypertarget{Decoder_8h_a18e74458eec7be38fd016ae3fa90aa21}\label{Decoder_8h_a18e74458eec7be38fd016ae3fa90aa21}} 
+\#define {\bfseries W\+R\+I\+T\+E\+\_\+\+D\+TR}~0x98
+\item 
+\mbox{\Hypertarget{Decoder_8h_acaf0f48f32bcf0364ceb6af9fe679811}\label{Decoder_8h_acaf0f48f32bcf0364ceb6af9fe679811}} 
+\#define {\bfseries L\+O\+A\+D\+\_\+\+C\+N\+TR}~0x\+E0
+\item 
+\mbox{\Hypertarget{Decoder_8h_a3d58f007c5ba589531eeaec7c2328b3f}\label{Decoder_8h_a3d58f007c5ba589531eeaec7c2328b3f}} 
+\#define {\bfseries L\+O\+A\+D\+\_\+\+O\+TR}~0x\+E4
+\item 
+\mbox{\Hypertarget{Decoder_8h_a5001016067783b1500a1fd34ca1bfc7f}\label{Decoder_8h_a5001016067783b1500a1fd34ca1bfc7f}} 
+\#define {\bfseries S\+P\+I\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY}~5000000
+\item 
+\mbox{\Hypertarget{Decoder_8h_add7b657259146c96ceadcb2bad6153eb}\label{Decoder_8h_add7b657259146c96ceadcb2bad6153eb}} 
+\#define {\bfseries C\+O\+U\+N\+T\+S\+\_\+\+P\+E\+R\+\_\+\+R\+E\+V\+O\+L\+U\+T\+I\+ON}~4096
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Authors}
+Arthur Adolfo and Gabriel Seibel 
+\end{DoxyAuthor}
