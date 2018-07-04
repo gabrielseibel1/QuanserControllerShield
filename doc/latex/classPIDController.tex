@@ -1,0 +1,88 @@
+\hypertarget{classPIDController}{}\section{P\+I\+D\+Controller Class Reference}
+\label{classPIDController}\index{P\+I\+D\+Controller@{P\+I\+D\+Controller}}
+
+
+{\ttfamily \#include $<$P\+I\+D\+Controller.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPIDController_af50f86800ed8b6c79ff3fc10c6f6f645}{P\+I\+D\+Controller}} (float kp, float ki, float kd)
+\item 
+void \mbox{\hyperlink{classPIDController_aa6bc9afda2652915eaee75376ac35ec9}{set\+\_\+max\+\_\+limit}} (float value)
+\item 
+void \mbox{\hyperlink{classPIDController_a0e3ca1d0d38d9348cda94e8deb9b6497}{set\+\_\+min\+\_\+limit}} (float value)
+\item 
+void \mbox{\hyperlink{classPIDController_a71c93fafc54a8235f259f9d935fdaf79}{set\+\_\+point}} (float new\+\_\+point)
+\item 
+float \mbox{\hyperlink{classPIDController_afd70ecf3f6f5f10181860eb067da1b43}{compute}} (float delta, float sample)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+P\+ID Controller 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPIDController_af50f86800ed8b6c79ff3fc10c6f6f645}\label{classPIDController_af50f86800ed8b6c79ff3fc10c6f6f645}} 
+\index{P\+I\+D\+Controller@{P\+I\+D\+Controller}!P\+I\+D\+Controller@{P\+I\+D\+Controller}}
+\index{P\+I\+D\+Controller@{P\+I\+D\+Controller}!P\+I\+D\+Controller@{P\+I\+D\+Controller}}
+\subsubsection{\texorpdfstring{P\+I\+D\+Controller()}{PIDController()}}
+{\footnotesize\ttfamily P\+I\+D\+Controller\+::\+P\+I\+D\+Controller (\begin{DoxyParamCaption}\item[{float}]{kp,  }\item[{float}]{ki,  }\item[{float}]{kd }\end{DoxyParamCaption})}
+
+Makes first configuration for the \mbox{\hyperlink{classPIDController}{P\+I\+D\+Controller}} 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classPIDController_afd70ecf3f6f5f10181860eb067da1b43}\label{classPIDController_afd70ecf3f6f5f10181860eb067da1b43}} 
+\index{P\+I\+D\+Controller@{P\+I\+D\+Controller}!compute@{compute}}
+\index{compute@{compute}!P\+I\+D\+Controller@{P\+I\+D\+Controller}}
+\subsubsection{\texorpdfstring{compute()}{compute()}}
+{\footnotesize\ttfamily float P\+I\+D\+Controller\+::compute (\begin{DoxyParamCaption}\item[{float}]{delta,  }\item[{float}]{sample }\end{DoxyParamCaption})}
+
+Computes P\+ID routine 
+\begin{DoxyParams}{Parameters}
+{\em delta} & time in radians \\
+\hline
+{\em sample} & in radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the necessary voltage to be applied to the motor 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPIDController_aa6bc9afda2652915eaee75376ac35ec9}\label{classPIDController_aa6bc9afda2652915eaee75376ac35ec9}} 
+\index{P\+I\+D\+Controller@{P\+I\+D\+Controller}!set\+\_\+max\+\_\+limit@{set\+\_\+max\+\_\+limit}}
+\index{set\+\_\+max\+\_\+limit@{set\+\_\+max\+\_\+limit}!P\+I\+D\+Controller@{P\+I\+D\+Controller}}
+\subsubsection{\texorpdfstring{set\+\_\+max\+\_\+limit()}{set\_max\_limit()}}
+{\footnotesize\ttfamily void P\+I\+D\+Controller\+::set\+\_\+max\+\_\+limit (\begin{DoxyParamCaption}\item[{float}]{value }\end{DoxyParamCaption})}
+
+Sets the max limit 
+\begin{DoxyParams}{Parameters}
+{\em value} & in voltage for max limit \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPIDController_a0e3ca1d0d38d9348cda94e8deb9b6497}\label{classPIDController_a0e3ca1d0d38d9348cda94e8deb9b6497}} 
+\index{P\+I\+D\+Controller@{P\+I\+D\+Controller}!set\+\_\+min\+\_\+limit@{set\+\_\+min\+\_\+limit}}
+\index{set\+\_\+min\+\_\+limit@{set\+\_\+min\+\_\+limit}!P\+I\+D\+Controller@{P\+I\+D\+Controller}}
+\subsubsection{\texorpdfstring{set\+\_\+min\+\_\+limit()}{set\_min\_limit()}}
+{\footnotesize\ttfamily void P\+I\+D\+Controller\+::set\+\_\+min\+\_\+limit (\begin{DoxyParamCaption}\item[{float}]{value }\end{DoxyParamCaption})}
+
+Sets the min limit 
+\begin{DoxyParams}{Parameters}
+{\em value} & in voltage for min limit \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPIDController_a71c93fafc54a8235f259f9d935fdaf79}\label{classPIDController_a71c93fafc54a8235f259f9d935fdaf79}} 
+\index{P\+I\+D\+Controller@{P\+I\+D\+Controller}!set\+\_\+point@{set\+\_\+point}}
+\index{set\+\_\+point@{set\+\_\+point}!P\+I\+D\+Controller@{P\+I\+D\+Controller}}
+\subsubsection{\texorpdfstring{set\+\_\+point()}{set\_point()}}
+{\footnotesize\ttfamily void P\+I\+D\+Controller\+::set\+\_\+point (\begin{DoxyParamCaption}\item[{float}]{new\+\_\+point }\end{DoxyParamCaption})}
+
+Sets new point that motor needs to reach 
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+point} & radian value \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/gabriel/\+C\+Lion\+Projects/\+Quanser\+Controller\+Shield/include/P\+I\+D\+Controller.\+h\end{DoxyCompactItemize}
