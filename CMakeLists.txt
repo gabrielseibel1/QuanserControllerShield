@@ -3,7 +3,9 @@ project(QuanserControllerShield)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_library(QuanserControllerShield
+include_directories(include)
+
+add_library(QuanserControllerShield STATIC
         include/galileo2io.h
         include/Motor.h
         include/Decoder.h
@@ -15,6 +17,8 @@ add_library(QuanserControllerShield
         lib/MicroSwitches.cpp
         lib/QuanserControllerShield.cpp
 )
+
+set_target_properties(QuanserControllerShield PROPERTIES PUBLIC_HEADER include/QuanserControllerShield.h)
 
 add_executable(testScript
 

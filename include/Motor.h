@@ -21,7 +21,7 @@
 
 #define MOTOR_ENABLE_FILENAME "/sys/class/gpio/gpio38/value"
 
-#define PWM_DUTY_CYCLE_FILENAME "/sys/class/pwm/pwmchip0/pwm1/duty_cycle"
+#define PWM_DUTY_CYCLE_FILENAME "/sys/class/pwm/pwmchip0/pwm3/duty_cycle"
 
 /**
  * DC motor actuation based on PWM
@@ -60,6 +60,12 @@ public:
      */
     int set_voltage_percentage(float percentage);
 
+    /**
+     * Sets apparent voltage of the dc motor. Effectively, sets PWM duty cycle accordingly.
+     * @param voltage The desired voltage between MAX_MOTOR_VOLTAGE and MIN_MOTOR_VOLTAGE
+     */
+    int set_voltage(float voltage);
+
 private:
 
     /**
@@ -72,11 +78,6 @@ private:
      */
     int enable_motor_fd;
 
-    /**
-     * Sets apparent voltage of the dc motor. Effectively, sets PWM duty cycle accordingly.
-     * @param voltage The desired voltage between MAX_MOTOR_VOLTAGE and MIN_MOTOR_VOLTAGE
-     */
-    int set_voltage(float voltage);
 
     /**
      * Turns PWM ON

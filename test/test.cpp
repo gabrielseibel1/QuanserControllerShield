@@ -3,7 +3,7 @@
  */
 
 #include <cstdio>
-#include "../include/QuanserControllerShield.h"
+#include <QuanserControllerShield.h>
 
 /**
  * Script for testing the quanser controller shield
