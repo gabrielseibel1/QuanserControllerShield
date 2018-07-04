@@ -13,7 +13,7 @@ Capacitors
 ----------
 2    C1-C2                         15nF            
 1    C3                            0.22nF          
-2    C4-C5                         1nF             
+2    C4-C5                         10nF            
 
 Resistors
 ---------
