@@ -4,6 +4,14 @@
 
 #include "../include/QuanserControllerShield.h"
 
-QuanserControllerShield::QuanserControllerShield() = default;
+QuanserControllerShield::QuanserControllerShield() {
+    motor = new Motor();
+    decoder = new Decoder();
+    microSwitches = new MicroSwitches();
+}
 
-QuanserControllerShield::~QuanserControllerShield() = default;
+QuanserControllerShield::~QuanserControllerShield() {
+    delete motor;
+    delete decoder;
+    delete microSwitches;
+}
