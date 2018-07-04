@@ -60,6 +60,12 @@ public:
      */
     int set_voltage_percentage(float percentage);
 
+    /**
+     * Sets apparent voltage of the dc motor. Effectively, sets PWM duty cycle accordingly.
+     * @param voltage The desired voltage between MAX_MOTOR_VOLTAGE and MIN_MOTOR_VOLTAGE
+     */
+    int set_voltage(float voltage);
+
 private:
 
     /**
@@ -72,11 +78,6 @@ private:
      */
     int enable_motor_fd;
 
-    /**
-     * Sets apparent voltage of the dc motor. Effectively, sets PWM duty cycle accordingly.
-     * @param voltage The desired voltage between MAX_MOTOR_VOLTAGE and MIN_MOTOR_VOLTAGE
-     */
-    int set_voltage(float voltage);
 
     /**
      * Turns PWM ON
