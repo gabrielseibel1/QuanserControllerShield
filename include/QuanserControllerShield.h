@@ -34,6 +34,12 @@ public:
      * Destroys all the components, configuring and closing necessary files
      */
     virtual ~QuanserControllerShield();
+
+    /**
+     * Runs the motor in one way until a switch is triggered
+     * @return 0 if reached the default position, -1 if failed
+     */
+    int send_joint_to_reference_position();
 };
 
 #endif //QUANSERCONTROLLERSHIELD_QUANSERCONTROLLERSHIELD_H

@@ -23,6 +23,8 @@ set_target_properties(QuanserControllerShield PROPERTIES PUBLIC_HEADER include/Q
 add_executable(testScript
 
         test/test.cpp
+        include/PIDController.h
+        src/PIDController.cpp
 )
 
 target_link_libraries(testScript QuanserControllerShield)

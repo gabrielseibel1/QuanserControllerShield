@@ -23,6 +23,11 @@ public:
      */
     float get_position_radians();
 
+/**
+ * Clear contents of CNTR register
+ */
+int reset_count();
+
 private:
 
     /**
@@ -68,10 +73,6 @@ private:
      */
     int _ss_low();
 
-    /**
-     * Clear contents of CNTR register
-     */
-    int reset_count();
 };
 
 

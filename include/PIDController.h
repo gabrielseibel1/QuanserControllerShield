@@ -35,7 +35,7 @@ public:
      * Computes PID routine
      * @param delta time in radians
      * @param sample in radians
-     * @return
+     * @return the necessary voltage to be applied to the motor
      */
     float compute(float delta, float sample);
 
@@ -47,10 +47,18 @@ private:
     float point;
 
     /**
-     * Constants used for PID
+     * Proportional gain
      */
     float Kp;
+
+    /**
+     * Integral gain
+     */
     float Ki;
+
+    /**
+     * Differential gain
+     */
     float Kd;
 
     /**
