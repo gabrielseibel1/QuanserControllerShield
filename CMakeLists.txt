@@ -3,6 +3,8 @@ project(QuanserControllerShield)
 
 set(CMAKE_CXX_STANDARD 11)
 
+set(CMAKE_CXX_COMPILER /opt/iot-devkit/devkit-x86/sysroots/x86_64-pokysdk-linux/usr/bin/i586-poky-linux/i586-poky-linux-g++)
+
 include_directories(include)
 
 add_library(QuanserControllerShield STATIC
@@ -11,7 +13,7 @@ add_library(QuanserControllerShield STATIC
         include/Decoder.h
         include/MicroSwitches.h
         include/QuanserControllerShield.h
-        lib/galileo2io.c
+        lib/galileo2io.cpp
         lib/Motor.cpp
         lib/Decoder.cpp
         lib/MicroSwitches.cpp
