@@ -4,6 +4,9 @@
 #define ELB1 1
 #define ELB2 2
 
+#define ELBOW1_FILENAME "/sys/class/gpio/gpio13/value"
+#define ELBOW2_FILENAME "/sys/class/gpio/gpio14/value"
+
 /**
  * Micro switches that mark the end of trajectory of the arm
  */

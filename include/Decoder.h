@@ -146,5 +146,7 @@ private:
 
 #define SPI_FREQUENCY 5000000
 #define COUNTS_PER_REVOLUTION 4096
+#define SPI_FILENAME "/dev/spidev1.0"
+#define _SS_FILENAME "/sys/class/gpio/gpio10/value"
 
 #endif //QUANSERCONTROLLERSHIELD_DECODER_H

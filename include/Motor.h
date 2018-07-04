@@ -21,7 +21,7 @@
 
 #define MOTOR_ENABLE_FILENAME "/sys/class/gpio/gpio38/value"
 
-#define PWM_DUTY_CYCLE_FILENAME "/sys/class/pwm/pwmchip0/pwm1/duty_cycle"
+#define PWM_DUTY_CYCLE_FILENAME "/sys/class/pwm/pwmchip0/pwm3/duty_cycle"
 
 /**
  * DC motor actuation based on PWM

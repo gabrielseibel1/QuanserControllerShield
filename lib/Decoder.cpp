@@ -21,11 +21,11 @@ Decoder::Decoder() {
 
     //open file descriptors
 
-    if ((spi_fd = open("/dev/spidev1.0", O_RDWR)) < 0) {
+    if ((spi_fd = open(SPI_FILENAME, O_RDWR)) < 0) {
         fprintf(stderr, "Failed to open /dev/spidev1.0\n");
         exit(EXIT_FAILURE);
     }
-    if ((_ss_fd = open("/sys/class/gpio/gpio10/value", O_WRONLY)) < 0) {
+    if ((_ss_fd = open(_SS_FILENAME, O_WRONLY)) < 0) {
         fprintf(stderr, "Failed to open /sys/class/gpio/gpio10/value\n");
         exit(EXIT_FAILURE);
     }

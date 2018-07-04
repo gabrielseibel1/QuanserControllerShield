@@ -9,14 +9,11 @@
 #include "../include/MicroSwitches.h"
 
 MicroSwitches::MicroSwitches() {
-    const char *elbow1_filename = "/sys/class/gpio/gpio62/value";
-    const char *elbow2_filename = "/sys/class/gpio/gpio13/value";
-
-    if ((elbow1_fd = open(elbow1_filename, O_RDONLY)) < 0) {
+    if ((elbow1_fd = open(ELBOW1_FILENAME, O_RDONLY)) < 0) {
         fprintf(stderr, "Failed to open elbow 1 micro switch\n");
         exit(EXIT_FAILURE);
     }
-    if ((elbow2_fd = open(elbow2_filename, O_RDONLY)) < 0) {
+    if ((elbow2_fd = open(ELBOW2_FILENAME, O_RDONLY)) < 0) {
         fprintf(stderr, "Failed to open elbow 2 micro switch\n");
         exit(EXIT_FAILURE);
     }
