@@ -12,79 +12,89 @@
 
 case "$1" in
     start|restart|force-reload)
-    #GPIO SENSORS
+    ### GPIO SENSORS
+
+    ## CONFIGURE IO2 AS GPIO INPUT FOR ELBOW SENSOR 1
 	if [ ! -d /sys/class/gpio/gpio13 ] ; then
 	    echo -n "13" > /sys/class/gpio/export
 	fi
 	echo -n "in" > /sys/class/gpio/gpio13/direction
-	chgrp gpio /sys/class/gpio/gpio13/value
+	chgrp quanser /sys/class/gpio/gpio13/value
 	chmod g+r /sys/class/gpio/gpio13/value
 	
+	# gpio38 = 1  = out
 	if [ ! -d /sys/class/gpio/gpio34 ] ; then
 	    echo -n "34" > /sys/class/gpio/export
 	fi
 	echo -n "out" > /sys/class/gpio/gpio34/direction
 	echo -n "1" > /sys/class/gpio/gpio34/value
 
+	# gpio35 = 0 = out = pull-down resistor
 	if [ ! -d /sys/class/gpio/gpio35 ] ; then
 	    echo -n "35" > /sys/class/gpio/export
 	fi
 	echo -n "out" > /sys/class/gpio/gpio35/direction
 	echo -n "0" > /sys/class/gpio/gpio35/value
 	
+	# gpio77 = 0
 	if [ ! -d /sys/class/gpio/gpio77 ] ; then
 	    echo -n "77" > /sys/class/gpio/export
 	fi
-#	echo -n "out" > /sys/class/gpio/gpio77/direction
 	echo -n "0" > /sys/class/gpio/gpio77/value
 
+	## CONFIGURE IO3 AS GPIO INPUT FOR ELBOW SENSOR 2
     if [ ! -d /sys/class/gpio/gpio14 ] ; then
 	    echo -n "14" > /sys/class/gpio/export
 	fi
 	echo -n "in" > /sys/class/gpio/gpio14/direction
-	chgrp gpio /sys/class/gpio/gpio14/value
+	chgrp quanser /sys/class/gpio/gpio14/value
 	chmod g+r /sys/class/gpio/gpio14/value
 	
+	# gpio16 = 1 = out
 	if [ ! -d /sys/class/gpio/gpio16 ] ; then
 	    echo -n "16" > /sys/class/gpio/export
 	fi
 	echo -n "out" > /sys/class/gpio/gpio16/direction
 	echo -n "1" > /sys/class/gpio/gpio16/value
 
+	# gpio17 = 0 = out = pull-down resistor
 	if [ ! -d /sys/class/gpio/gpio17 ] ; then
 	    echo -n "17" > /sys/class/gpio/export
 	fi
 	echo -n "out" > /sys/class/gpio/gpio17/direction
 	echo -n "0" > /sys/class/gpio/gpio17/value
 	
+	# gpio76 = 0
 	if [ ! -d /sys/class/gpio/gpio76 ] ; then
 	    echo -n "76" > /sys/class/gpio/export
 	fi
-	echo -n "out" > /sys/class/gpio/gpio76/direction
 	echo -n "0" > /sys/class/gpio/gpio76/value
     
+    # gpio64 = 0
 	if [ ! -d /sys/class/gpio/gpio64 ] ; then
 	    echo -n "64" > /sys/class/gpio/export
 	fi
-	echo -n "out" > /sys/class/gpio/gpio64/direction
 	echo -n "0" > /sys/class/gpio/gpio64/value
     
-    #GPIO MOTOR ENABLE
+    ###GPIO MOTOR ENABLE
+
+    ## Configure IO7 AS GPIO OUTPUT FOR CONTROL MOTOR ENABLE
     if [ ! -d /sys/class/gpio/gpio38 ] ; then
 	    echo -n "38" > /sys/class/gpio/export
 	fi
 	echo -n "out" > /sys/class/gpio/gpio38/direction
 	echo -n "0" > /sys/class/gpio/gpio38/value
-	chgrp gpio /sys/class/gpio/gpio38/value
+	chgrp quasner /sys/class/gpio/gpio38/value
 	chmod g+r /sys/class/gpio/gpio38/value
 	
+	# gpio39 = in = no pull-up nor pull-down resistor
 	if [ ! -d /sys/class/gpio/gpio39 ] ; then
 	    echo -n "39" > /sys/class/gpio/export
 	fi
 	echo -n "in" > /sys/class/gpio/gpio39/direction
 
-    #PWM MOTOR
-        # IO5 = pwm3
+    ### PWM MOTOR
+    ## CONFIGURE IO5 AS PWM3 TO CONTROL MOTOR DC
 	if [ ! -d /sys/class/pwm/pwmchip0/pwm3 ] ; then
 	    echo -n "3" > /sys/class/pwm/pwmchip0/export
 	fi
@@ -95,27 +105,28 @@ case "$1" in
 	chgrp quanser /sys/class/pwm/pwmchip0/pwm3/enable
 	chmod g+w /sys/class/pwm/pwmchip0/pwm3/enable
         
-        # gpio16 = 0 = out
+    # gpio18 = 0 = out
 	if [ ! -d /sys/class/gpio/gpio18 ] ; then
 	    echo -n "18" > /sys/class/gpio/export
 	fi
 	echo -n "out" > /sys/class/gpio/gpio18/direction
 	echo -n "0" > /sys/class/gpio/gpio18/value
 
-        # gpio19 = in = no pull-up nor pull-down
+    # gpio19 = in = no pull-up nor pull-down
 	if [ ! -d /sys/class/gpio/gpio19 ] ; then
 	    echo -n "19" > /sys/class/gpio/export
 	fi
 	echo -n "in" > /sys/class/gpio/gpio19/direction
         
-        # gpio76 = 0
+    # gpio66 = 1
 	if [ ! -d /sys/class/gpio/gpio66 ] ; then
 	    echo -n "66" > /sys/class/gpio/export
 	fi
-	echo -n "out" > /sys/class/gpio/gpio66/direction
 	echo -n "1" > /sys/class/gpio/gpio66/value
 
-    #SPI
+	### CONFIGURES SERIAL INTERFACE WITH LS7366r
+    ## SPI
+
     # Configures IO10 for SPI #SS
 	#	gpio26=0 (output)
 	#	gpio27=1 (pull-up)
@@ -136,6 +147,15 @@ case "$1" in
 	    echo -n "74" > /sys/class/gpio/export
 	fi
 	echo -n "0" > /sys/class/gpio/gpio74/value
+
+	if [ ! -d /sys/class/gpio/gpio10 ] ; then
+	    echo -n "10" > /sys/class/gpio/export
+	fi
+	echo -n "out" > /sys/class/gpio/gpio10/direction
+
+	chgrp quanser /sys/class/gpio/gpio10/value
+    chmod g+rw /sys/class/gpio/gpio10/value
+
 	
 	# Configures IO11 for SPI MOSI
 	#	gpio24=0 (output)
@@ -200,11 +220,11 @@ case "$1" in
 	echo -n "out" > /sys/class/gpio/gpio46/direction
 	echo -n "1" > /sys/class/gpio/gpio46/value
 
-        chgrp quanser /dev/spidev1.0
-        chmod g+rw /dev/spidev1.0
+    chgrp quanser /dev/spidev1.0
+    chmod g+rw /dev/spidev1.0
 
-    #LFLAG
-    # IO6 = gpio1
+    ### LFLAG
+    ## CONFIGURE IO6 AS GPIO INPUT FOR LFLAG
 	if [ ! -d /sys/class/gpio/gpio1 ] ; then
 	    echo -n "1" > /sys/class/gpio/export
 	fi
@@ -212,19 +232,20 @@ case "$1" in
 	chgrp gpio /sys/class/gpio/gpio1/value
 	chmod g+r /sys/class/gpio/gpio1/value
 
-	# gpio20 = 1 => IO6=in	
+	# gpio20 = 1 = out	
 	if [ ! -d /sys/class/gpio/gpio20 ] ; then
 	    echo -n "20" > /sys/class/gpio/export
 	fi
 	echo -n "out" > /sys/class/gpio/gpio20/direction
 	echo -n "1" > /sys/class/gpio/gpio20/value
 
-	# gpio21 = in => none
+	# gpio21 = in = no pull-down nor pull-up resistor
 	if [ ! -d /sys/class/gpio/gpio21 ] ; then
 	    echo -n "21" > /sys/class/gpio/export
 	fi
 	echo -n "in" > /sys/class/gpio/gpio21/direction
 
+	# gpio68 = 0 = out
 	if [ ! -d /sys/class/gpio/gpio68 ] ; then
 	    echo -n "68" > /sys/class/gpio/export
 	fi
@@ -234,23 +255,23 @@ case "$1" in
 	;;
     stop)
     #GPIO SENSORS
-    	echo -n "13" > /sys/class/gpio/unexport
+    echo -n "13" > /sys/class/gpio/unexport
 	echo -n "34" > /sys/class/gpio/unexport
 	echo -n "35" > /sys/class/gpio/unexport
 	echo -n "77" > /sys/class/gpio/unexport
-    	echo -n "14" > /sys/class/gpio/unexport
+    echo -n "14" > /sys/class/gpio/unexport
 	echo -n "16" > /sys/class/gpio/unexport
 	echo -n "17" > /sys/class/gpio/unexport
 	echo -n "76" > /sys/class/gpio/unexport
 	echo -n "64" > /sys/class/gpio/unexport
 
     #GPIO MOTOR ENABLE
-        echo -n "38" > /sys/class/gpio/unexport
+    echo -n "38" > /sys/class/gpio/unexport
 	echo -n "39" > /sys/class/gpio/unexport
 
     #PWM MOTOR
     echo -n "0" > /sys/class/pwm/pwmchip0/pwm3/enable
-        echo -n "66" > /sys/class/gpio/unexport
+    echo -n "66" > /sys/class/gpio/unexport
 	echo -n "19" > /sys/class/gpio/unexport
 	echo -n "1" > /sys/class/gpio/gpio18/value
 	echo -n "18" > /sys/class/gpio/unexport
@@ -259,31 +280,21 @@ case "$1" in
     #SPI
     echo -n "1" > /sys/class/gpio/gpio26/value
 	echo -n "26" > /sys/class/gpio/unexport
-	
 	echo -n "in" > /sys/class/gpio/gpio27/direction
-	
 	echo -n "74" > /sys/class/gpio/unexport
-	
 	echo -n "1" > /sys/class/gpio/gpio24/value
 	echo -n "24" > /sys/class/gpio/unexport
-	
 	echo -n "25" > /sys/class/gpio/unexport
-
 	echo -n "0" > /sys/class/gpio/gpio44/value
 	echo -n "44" > /sys/class/gpio/unexport
-	
 	echo -n "72" > /sys/class/gpio/unexport
-
+	echo -n "10" > /sys/class/gpio/unexport
 	echo -n "42" > /sys/class/gpio/unexport
-
 	echo -n "43" > /sys/class/gpio/unexport
-
 	echo -n "0" > /sys/class/gpio/gpio46/value
 	echo -n "46" > /sys/class/gpio/unexport
-	
 	echo -n "in" > /sys/class/gpio/gpio31/direction
-	echo -n "31" > /sys/class/gpio/unexport
-	
+	echo -n "31" > /sys/class/gpio/unexport	
 	echo -n "1" > /sys/class/gpio/gpio30/value
 	echo -n "30" > /sys/class/gpio/unexport
 
