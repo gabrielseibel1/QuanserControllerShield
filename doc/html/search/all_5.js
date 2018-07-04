@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['quansercontrollershield',['QuanserControllerShield',['../md__home_gabriel_CLionProjects_QuanserControllerShield_README.html',1,'']]],
-  ['quansercontrollershield',['QuanserControllerShield',['../classQuanserControllerShield.html',1,'QuanserControllerShield'],['../classQuanserControllerShield.html#a965410baa27ff59baa08bf1e49a7f1eb',1,'QuanserControllerShield::QuanserControllerShield()']]]
+  ['microswitches',['MicroSwitches',['../classMicroSwitches.html',1,'MicroSwitches'],['../classQuanserControllerShield.html#a3e52e8fda734c41da7ad6f704ccf0877',1,'QuanserControllerShield::microSwitches()'],['../classMicroSwitches.html#a4073b2b20626c10b5ed143ddcf2be96e',1,'MicroSwitches::MicroSwitches()']]],
+  ['motor',['Motor',['../classMotor.html',1,'Motor'],['../classQuanserControllerShield.html#a7b7642fc075d425ff9ee43909b992f94',1,'QuanserControllerShield::motor()'],['../classMotor.html#af6106b4c506411265c5face762b6c004',1,'Motor::Motor()']]]
 ];

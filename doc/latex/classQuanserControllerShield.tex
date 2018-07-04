@@ -10,18 +10,17 @@
 \mbox{\hyperlink{classQuanserControllerShield_a965410baa27ff59baa08bf1e49a7f1eb}{Quanser\+Controller\+Shield}} ()
 \item 
 virtual \mbox{\hyperlink{classQuanserControllerShield_a60b539f19bf54838086557c8c3e7a1bb}{$\sim$\+Quanser\+Controller\+Shield}} ()
+\item 
+int \mbox{\hyperlink{classQuanserControllerShield_acc48f947e7646699383b8ff786a71f22}{send\+\_\+joint\+\_\+to\+\_\+reference\+\_\+position}} ()
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classQuanserControllerShield_a7b7642fc075d425ff9ee43909b992f94}\label{classQuanserControllerShield_a7b7642fc075d425ff9ee43909b992f94}} 
-\mbox{\hyperlink{classMotor}{Motor}} $\ast$ {\bfseries motor}
+\mbox{\hyperlink{classMotor}{Motor}} $\ast$ \mbox{\hyperlink{classQuanserControllerShield_a7b7642fc075d425ff9ee43909b992f94}{motor}}
 \item 
-\mbox{\Hypertarget{classQuanserControllerShield_a83088510efc04475115e835a65a4b9ad}\label{classQuanserControllerShield_a83088510efc04475115e835a65a4b9ad}} 
-\mbox{\hyperlink{classDecoder}{Decoder}} $\ast$ {\bfseries decoder}
+\mbox{\hyperlink{classDecoder}{Decoder}} $\ast$ \mbox{\hyperlink{classQuanserControllerShield_a83088510efc04475115e835a65a4b9ad}{decoder}}
 \item 
-\mbox{\Hypertarget{classQuanserControllerShield_a3e52e8fda734c41da7ad6f704ccf0877}\label{classQuanserControllerShield_a3e52e8fda734c41da7ad6f704ccf0877}} 
-\mbox{\hyperlink{classMicroSwitches}{Micro\+Switches}} $\ast$ {\bfseries micro\+Switches}
+\mbox{\hyperlink{classMicroSwitches}{Micro\+Switches}} $\ast$ \mbox{\hyperlink{classQuanserControllerShield_a3e52e8fda734c41da7ad6f704ccf0877}{micro\+Switches}}
 \end{DoxyCompactItemize}
 
 
@@ -33,15 +32,48 @@ High level abstraction of the board
 \index{Quanser\+Controller\+Shield@{Quanser\+Controller\+Shield}!Quanser\+Controller\+Shield@{Quanser\+Controller\+Shield}}
 \index{Quanser\+Controller\+Shield@{Quanser\+Controller\+Shield}!Quanser\+Controller\+Shield@{Quanser\+Controller\+Shield}}
 \subsubsection{\texorpdfstring{Quanser\+Controller\+Shield()}{QuanserControllerShield()}}
-{\footnotesize\ttfamily Quanser\+Controller\+Shield\+::\+Quanser\+Controller\+Shield (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+{\footnotesize\ttfamily Quanser\+Controller\+Shield\+::\+Quanser\+Controller\+Shield (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Initializes all the components, opening and configuring necessary files \mbox{\Hypertarget{classQuanserControllerShield_a60b539f19bf54838086557c8c3e7a1bb}\label{classQuanserControllerShield_a60b539f19bf54838086557c8c3e7a1bb}} 
 \index{Quanser\+Controller\+Shield@{Quanser\+Controller\+Shield}!````~Quanser\+Controller\+Shield@{$\sim$\+Quanser\+Controller\+Shield}}
 \index{````~Quanser\+Controller\+Shield@{$\sim$\+Quanser\+Controller\+Shield}!Quanser\+Controller\+Shield@{Quanser\+Controller\+Shield}}
 \subsubsection{\texorpdfstring{$\sim$\+Quanser\+Controller\+Shield()}{~QuanserControllerShield()}}
-{\footnotesize\ttfamily Quanser\+Controller\+Shield\+::$\sim$\+Quanser\+Controller\+Shield (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+{\footnotesize\ttfamily Quanser\+Controller\+Shield\+::$\sim$\+Quanser\+Controller\+Shield (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 Destroys all the components, configuring and closing necessary files 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQuanserControllerShield_acc48f947e7646699383b8ff786a71f22}\label{classQuanserControllerShield_acc48f947e7646699383b8ff786a71f22}} 
+\index{Quanser\+Controller\+Shield@{Quanser\+Controller\+Shield}!send\+\_\+joint\+\_\+to\+\_\+reference\+\_\+position@{send\+\_\+joint\+\_\+to\+\_\+reference\+\_\+position}}
+\index{send\+\_\+joint\+\_\+to\+\_\+reference\+\_\+position@{send\+\_\+joint\+\_\+to\+\_\+reference\+\_\+position}!Quanser\+Controller\+Shield@{Quanser\+Controller\+Shield}}
+\subsubsection{\texorpdfstring{send\+\_\+joint\+\_\+to\+\_\+reference\+\_\+position()}{send\_joint\_to\_reference\_position()}}
+{\footnotesize\ttfamily int Quanser\+Controller\+Shield\+::send\+\_\+joint\+\_\+to\+\_\+reference\+\_\+position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Runs the motor in one way until a switch is triggered \begin{DoxyReturn}{Returns}
+0 if reached the default position, -\/1 if failed 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classQuanserControllerShield_a83088510efc04475115e835a65a4b9ad}\label{classQuanserControllerShield_a83088510efc04475115e835a65a4b9ad}} 
+\index{Quanser\+Controller\+Shield@{Quanser\+Controller\+Shield}!decoder@{decoder}}
+\index{decoder@{decoder}!Quanser\+Controller\+Shield@{Quanser\+Controller\+Shield}}
+\subsubsection{\texorpdfstring{decoder}{decoder}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDecoder}{Decoder}}$\ast$ Quanser\+Controller\+Shield\+::decoder}
+
+Reader for decoder counting \mbox{\Hypertarget{classQuanserControllerShield_a3e52e8fda734c41da7ad6f704ccf0877}\label{classQuanserControllerShield_a3e52e8fda734c41da7ad6f704ccf0877}} 
+\index{Quanser\+Controller\+Shield@{Quanser\+Controller\+Shield}!micro\+Switches@{micro\+Switches}}
+\index{micro\+Switches@{micro\+Switches}!Quanser\+Controller\+Shield@{Quanser\+Controller\+Shield}}
+\subsubsection{\texorpdfstring{micro\+Switches}{microSwitches}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMicroSwitches}{Micro\+Switches}}$\ast$ Quanser\+Controller\+Shield\+::micro\+Switches}
+
+Reader for micro switches \mbox{\Hypertarget{classQuanserControllerShield_a7b7642fc075d425ff9ee43909b992f94}\label{classQuanserControllerShield_a7b7642fc075d425ff9ee43909b992f94}} 
+\index{Quanser\+Controller\+Shield@{Quanser\+Controller\+Shield}!motor@{motor}}
+\index{motor@{motor}!Quanser\+Controller\+Shield@{Quanser\+Controller\+Shield}}
+\subsubsection{\texorpdfstring{motor}{motor}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMotor}{Motor}}$\ast$ Quanser\+Controller\+Shield\+::motor}
+
+Controller for the motor actuation 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

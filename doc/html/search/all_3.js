@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['is_5fend_5fof_5ftrajectory',['is_end_of_trajectory',['../classMicroSwitches.html#acff92bf7c9c16cc9c8e255dbf8ca5aaf',1,'MicroSwitches']]]
+  ['get_5fposition_5fradians',['get_position_radians',['../classDecoder.html#a27b38533ded3df3b1d81011105d0ae73',1,'Decoder']]]
 ];

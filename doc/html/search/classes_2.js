@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quansercontrollershield',['QuanserControllerShield',['../classQuanserControllerShield.html',1,'']]]
+  ['pidcontroller',['PIDController',['../classPIDController.html',1,'']]]
 ];

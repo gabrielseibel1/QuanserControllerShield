@@ -85,6 +85,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aff58309122a4ba7ea4d037e288c9192f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fda59cead716e5cd5ce252741d3d47b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMotor.html#a7fda59cead716e5cd5ce252741d3d47b">set_voltage_percentage</a> (float percentage)</td></tr>
 <tr class="separator:a7fda59cead716e5cd5ce252741d3d47b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59b7b398bb2c52654a0b998643b3fbb8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMotor.html#a59b7b398bb2c52654a0b998643b3fbb8">set_voltage</a> (float voltage)</td></tr>
+<tr class="separator:a59b7b398bb2c52654a0b998643b3fbb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p class="">DC motor actuation based on PWM </p>
@@ -167,6 +169,30 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p class="">Turns motor ON by setting its enable pin to 1 </p>
+
+</div>
+</div>
+<a id="a59b7b398bb2c52654a0b998643b3fbb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59b7b398bb2c52654a0b998643b3fbb8">&#9670;&nbsp;</a></span>set_voltage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Motor::set_voltage </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>voltage</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p class="">Sets apparent voltage of the dc motor. Effectively, sets PWM duty cycle accordingly. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">voltage</td><td>The desired voltage between MAX_MOTOR_VOLTAGE and MIN_MOTOR_VOLTAGE </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

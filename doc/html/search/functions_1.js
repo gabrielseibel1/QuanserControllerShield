@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['enable',['enable',['../classMotor.html#aff58309122a4ba7ea4d037e288c9192f',1,'Motor']]]
+  ['decoder',['Decoder',['../classDecoder.html#a691a867940a1c494b77e458ae1325352',1,'Decoder']]],
+  ['disable',['disable',['../classMotor.html#ac019bca262791cea21e1c84c9156d199',1,'Motor']]]
 ];

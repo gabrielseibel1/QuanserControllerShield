@@ -16,6 +16,8 @@ int \mbox{\hyperlink{classMotor_ac019bca262791cea21e1c84c9156d199}{disable}} ()
 int \mbox{\hyperlink{classMotor_aff58309122a4ba7ea4d037e288c9192f}{enable}} ()
 \item 
 int \mbox{\hyperlink{classMotor_a7fda59cead716e5cd5ce252741d3d47b}{set\+\_\+voltage\+\_\+percentage}} (float percentage)
+\item 
+int \mbox{\hyperlink{classMotor_a59b7b398bb2c52654a0b998643b3fbb8}{set\+\_\+voltage}} (float voltage)
 \end{DoxyCompactItemize}
 
 
@@ -50,7 +52,18 @@ Turns motor O\+FF by setting its enable pin to 0 \mbox{\Hypertarget{classMotor_a
 \subsubsection{\texorpdfstring{enable()}{enable()}}
 {\footnotesize\ttfamily int Motor\+::enable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Turns motor ON by setting its enable pin to 1 \mbox{\Hypertarget{classMotor_a7fda59cead716e5cd5ce252741d3d47b}\label{classMotor_a7fda59cead716e5cd5ce252741d3d47b}} 
+Turns motor ON by setting its enable pin to 1 \mbox{\Hypertarget{classMotor_a59b7b398bb2c52654a0b998643b3fbb8}\label{classMotor_a59b7b398bb2c52654a0b998643b3fbb8}} 
+\index{Motor@{Motor}!set\+\_\+voltage@{set\+\_\+voltage}}
+\index{set\+\_\+voltage@{set\+\_\+voltage}!Motor@{Motor}}
+\subsubsection{\texorpdfstring{set\+\_\+voltage()}{set\_voltage()}}
+{\footnotesize\ttfamily int Motor\+::set\+\_\+voltage (\begin{DoxyParamCaption}\item[{float}]{voltage }\end{DoxyParamCaption})}
+
+Sets apparent voltage of the dc motor. Effectively, sets P\+WM duty cycle accordingly. 
+\begin{DoxyParams}{Parameters}
+{\em voltage} & The desired voltage between M\+A\+X\+\_\+\+M\+O\+T\+O\+R\+\_\+\+V\+O\+L\+T\+A\+GE and M\+I\+N\+\_\+\+M\+O\+T\+O\+R\+\_\+\+V\+O\+L\+T\+A\+GE \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMotor_a7fda59cead716e5cd5ce252741d3d47b}\label{classMotor_a7fda59cead716e5cd5ce252741d3d47b}} 
 \index{Motor@{Motor}!set\+\_\+voltage\+\_\+percentage@{set\+\_\+voltage\+\_\+percentage}}
 \index{set\+\_\+voltage\+\_\+percentage@{set\+\_\+voltage\+\_\+percentage}!Motor@{Motor}}
 \subsubsection{\texorpdfstring{set\+\_\+voltage\+\_\+percentage()}{set\_voltage\_percentage()}}
