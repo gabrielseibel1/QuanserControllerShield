@@ -28,5 +28,12 @@ add_executable(testScript
         include/PIDController.h
         src/PIDController.cpp
 )
+target_link_libraries(testScript QuanserControllerShield)
 
+add_executable(pwmTest
+
+        test/pwm_test.cpp
+        include/PIDController.h
+        src/PIDController.cpp
+)
 target_link_libraries(testScript QuanserControllerShield)
