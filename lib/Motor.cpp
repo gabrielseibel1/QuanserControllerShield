@@ -117,7 +117,7 @@ int Motor::enable_pwm() {
 }
 
 int Motor::set_pwm_period() {
-    if (pputs("/sys/class/pwm/pwmchip0/device/pwm_period", "5000000") < 0) {
+    if (pputs("/sys/class/pwm/pwmchip0/device/pwm_period", PWM_PERIOD_NS) < 0) {
         fprintf(stderr, "Failed to set pwm period\n");
         return -1;
     }

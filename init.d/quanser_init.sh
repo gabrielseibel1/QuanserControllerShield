@@ -124,6 +124,10 @@ case "$1" in
 	fi
 	echo -n "1" > /sys/class/gpio/gpio66/value
 
+	echo -n "1000000" > /sys/class/pwm/pwmchip0/device/pwm_period
+	echo -n "500000" > /sys/class/pwm/pwmchip0/pwm3/duty_cycle
+    echo -n "0" > /sys/class/pwm/pwmchip0/pwm3/enable
+
 	### CONFIGURES SERIAL INTERFACE WITH LS7366r
     ## SPI
 

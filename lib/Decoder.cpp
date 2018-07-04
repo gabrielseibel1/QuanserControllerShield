@@ -67,6 +67,10 @@ Decoder::Decoder() {
         exit(EXIT_FAILURE);
     }
 
+    printf("MDR0: %c\n", read_byte(READ_MDR0));
+
+    printf("MDR1: %c\n", read_byte(READ_MDR1));
+
     //clear counting register
     if (reset_count() < 0) exit(EXIT_FAILURE);
 }
@@ -87,7 +91,7 @@ int Decoder::get_count() {
     if (_ss_low() < 0) exit(EXIT_FAILURE);
 
     //write spi op code to read counter to spi bus
-    if (write(spi_fd, &read_counter_op, sizeof(read_counter_op)) < 0) {
+    if (write(spi_fd, &read_counter_op, sizeof(read_counter_op)) <= 0) {
         fprintf(stderr, "Failed write read counter op code to SPI bus\n");
         exit(EXIT_FAILURE);
     }
@@ -117,7 +121,7 @@ int Decoder::reset_count() {
     if (_ss_low() < 0) return -1;
 
     //write spi op code to spi bus
-    if (write(spi_fd, &op_code, sizeof(op_code)) < 0) {
+    if (write(spi_fd, &op_code, sizeof(op_code)) <= 0) {
         fprintf(stderr, "Failed reset counter\n");
         return -1;
     }
@@ -128,20 +132,27 @@ int Decoder::reset_count() {
 }
 
 int Decoder::write_byte(unsigned char op_code, unsigned char data) {
+    int opcode_ok, data_ok;
+
     if (_ss_high() < 0) return -1;
     if (_ss_low() < 0) return -1;
 
     //write spi op code to spi bus
-    if (write(spi_fd, &op_code, sizeof(op_code)) < 0) {
+    opcode_ok = write(spi_fd, &op_code, sizeof(op_code));
+    if (opcode_ok < 0) {
         fprintf(stderr, "Failed write op code to SPI\n");
         return -1;
     }
 
     // send data
-    if (write(spi_fd, &data, sizeof(data)) < 0) {
+    data_ok = write(spi_fd, &data, sizeof(data));
+    if (data_ok < 0) {
         fprintf(stderr, "Failed write data to SPI\n");
         return -1;
     }
+
+    printf("Opcode bytes: %d\n", opcode_ok);
+    printf("Data bytes: %d\n", data_ok);
 
     if (_ss_high() < 0) return -1;
 
@@ -149,15 +160,20 @@ int Decoder::write_byte(unsigned char op_code, unsigned char data) {
 }
 
 unsigned char Decoder::read_byte(unsigned char op_code) {
+    int byte_ok;
+
     unsigned char byte;
 
     if (_ss_high() < 0) exit(EXIT_FAILURE);
     if (_ss_low() < 0) exit(EXIT_FAILURE);
 
     //write spi op code to spi bus
-    if (write(spi_fd, &op_code, sizeof(op_code)) < 0) {
+    byte_ok = write(spi_fd, &op_code, sizeof(op_code));
+    if (byte_ok < 0) {
         fprintf(stderr, "Failed write op code to SPI\n");
         exit(EXIT_FAILURE);
+    } else {
+        printf("Read %d bytes\n", byte_ok);
     }
 
     //read data from the spi bus when available

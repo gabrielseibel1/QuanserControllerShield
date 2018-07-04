@@ -44,5 +44,5 @@ int MicroSwitches::is_end_of_trajectory(int index) {
     read(elbow_fd, &elb_read, sizeof elb_read);
     usleep(100);
 
-    return elb_read == '1'; //TODO check if '1' really means end
+    return elb_read == '0'; //TODO check if '1' really means end
 }

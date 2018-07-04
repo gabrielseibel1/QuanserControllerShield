@@ -12,12 +12,18 @@
  */
 int main(int argc, char *argv[]) {
     QuanserControllerShield *quanser = new QuanserControllerShield();
-    for (int i = 0; i < 100; ++i) {
-        quanser->motor->set_voltage_percentage(i);
-        usleep(500);
+    for (int i = MIN_MOTOR_VOLTAGE; i < MAX_MOTOR_VOLTAGE; ++i) {
+        quanser->motor->set_voltage(i);
+        usleep(75000);
     }
 
     quanser->motor->set_voltage(MIN_MOTOR_VOLTAGE);
+    sleep(1);
+
     quanser->motor->set_voltage(0);
+    sleep(1);
+
     quanser->motor->set_voltage(MAX_MOTOR_VOLTAGE);
+    sleep(1);
+
 }

@@ -45,3 +45,11 @@ add_executable(decoderTest
         src/PIDController.cpp
 )
 target_link_libraries(decoderTest QuanserControllerShield)
+
+add_executable(moveTest
+
+        test/move_test.cpp
+        include/PIDController.h
+        src/PIDController.cpp
+)
+target_link_libraries(moveTest QuanserControllerShield)
