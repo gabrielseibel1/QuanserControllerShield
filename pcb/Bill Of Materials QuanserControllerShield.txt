@@ -1,0 +1,43 @@
+Bill Of Materials
+=================
+Design Title:    QuanserControllerShield
+Document Number: 1.0
+Revision:        1
+Author:          Arthur Adolfo, Gabriel Seibel
+Created:         quinta-feira, 14 de junho de 2018
+Modified:        terça-feira, 3 de julho de 2018
+
+QTY  PART-REFS                     VALUE           
+---  ---------                     -----           
+Capacitors
+----------
+2    C1-C2                         15nF            
+1    C3                            0.22nF          
+2    C4-C5                         1nF             
+
+Resistors
+---------
+1    R1                            10k             
+2    R2,R4                         1k              
+1    R3                            1M              
+
+Integrated Circuits
+-------------------
+1    U1                            L6203           
+
+Transistors
+-----------
+1    Q1                            2N1711          
+
+Miscellaneous
+-------------
+1    DEC                           LS7366R         
+2    J1,J3                         ARDUINO-SIL8    
+1    J2                            ARDUINO-SIL10   
+1    J4                            ARDUINO-SIL6    
+1    J9                            CONN-DIL16      
+1    J10                           DIN5            
+2    J_27V,J_5V                    TBLOCK-I2       
+1    J_OUT_MOTOR                   TBLOCK-M3       
+1    X1                            CRYSTAL         
+
