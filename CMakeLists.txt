@@ -3,16 +3,22 @@ project(QuanserControllerShield)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(QuanserControllerShield
-
-        lib/galileo2io.c
+add_library(QuanserControllerShield
         include/galileo2io.h
-        lib/Decoder.cpp
-        include/Decoder.h
-        lib/MicroSwitches.cpp
-        include/MicroSwitches.h
-        lib/Motor.cpp
         include/Motor.h
-        lib/QuanserControllerShield.cpp
+        include/Decoder.h
+        include/MicroSwitches.h
         include/QuanserControllerShield.h
-        test/test.cpp)
+        lib/galileo2io.c
+        lib/Motor.cpp
+        lib/Decoder.cpp
+        lib/MicroSwitches.cpp
+        lib/QuanserControllerShield.cpp
+)
+
+add_executable(testScript
+
+        test/test.cpp
+)
+
+target_link_libraries(testScript QuanserControllerShield)
