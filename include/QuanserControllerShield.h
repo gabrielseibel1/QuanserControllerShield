@@ -10,8 +10,19 @@
  */
 class QuanserControllerShield {
 public:
+    /**
+     * Controller for the motor actuation
+     */
     Motor *motor;
+
+    /**
+     * Reader for decoder counting
+     */
     Decoder *decoder;
+
+    /**
+     * Reader for micro switches
+     */
     MicroSwitches *microSwitches;
 
     /**
