@@ -36,4 +36,4 @@ add_executable(pwmTest
         include/PIDController.h
         src/PIDController.cpp
 )
-target_link_libraries(testScript QuanserControllerShield)
+target_link_libraries(pwmTest QuanserControllerShield)
