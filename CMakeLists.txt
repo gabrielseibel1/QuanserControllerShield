@@ -37,3 +37,11 @@ add_executable(pwmTest
         src/PIDController.cpp
 )
 target_link_libraries(pwmTest QuanserControllerShield)
+
+add_executable(decoderTest
+
+        test/decoder_test.cpp
+        include/PIDController.h
+        src/PIDController.cpp
+)
+target_link_libraries(decoderTest QuanserControllerShield)

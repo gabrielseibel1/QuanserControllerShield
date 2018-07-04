@@ -29,6 +29,7 @@
 
 #include "../include/galileo2io.h"
 #include <string.h>
+#include <cstdio>
 
 char *pgets(char *s, int size, const char path[]) {
     int fd;

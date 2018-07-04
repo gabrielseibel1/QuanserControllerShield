@@ -84,7 +84,7 @@ case "$1" in
 	fi
 	echo -n "out" > /sys/class/gpio/gpio38/direction
 	echo -n "0" > /sys/class/gpio/gpio38/value
-	chgrp quasner /sys/class/gpio/gpio38/value
+	chgrp quanser /sys/class/gpio/gpio38/value
 	chmod g+r /sys/class/gpio/gpio38/value
 	
 	# gpio39 = in = no pull-up nor pull-down resistor

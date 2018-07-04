@@ -101,23 +101,23 @@ int Motor::enable() {
 }
 
 int Motor::disable_pwm() {
-    if (pputs("/sys/class/pwm/pwmchip0/pwm1/enable", "0") < 0) {
-        fprintf(stderr, "Failed to set pwm period\n");
+    if (pputs("/sys/class/pwm/pwmchip0/pwm3/enable", "0") < 0) {
+        fprintf(stderr, "Failed to disable pwm\n");
         return -1;
     }
     return 0;
 }
 
 int Motor::enable_pwm() {
-    if (pputs("/sys/class/pwm/pwmchip0/pwm1/enable", "1") < 0) {
-        fprintf(stderr, "Failed to set pwm period\n");
+    if (pputs("/sys/class/pwm/pwmchip0/pwm3/enable", "1") < 0) {
+        fprintf(stderr, "Failed to enable pwm\n");
         return -1;
     }
     return 0;
 }
 
 int Motor::set_pwm_period() {
-    if (pputs("/sys/class/pwm/pwmchip0/device/pwm_period", PWM_PERIOD_NS) < 0) {
+    if (pputs("/sys/class/pwm/pwmchip0/device/pwm_period", "5000000") < 0) {
         fprintf(stderr, "Failed to set pwm period\n");
         return -1;
     }
